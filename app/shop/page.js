@@ -5,7 +5,7 @@ import Link from 'next/link'
 const products = [
   {
     id: 1,
-    name: 'მინაბლოკის ყავის მაგიდა',
+    name: 'Glass Block Coffee Table',
     price: 349,
     category: 'Tables',
     description: 'Handcrafted coffee table made from 12 glass blocks. Stunning centerpiece for any living room.',
@@ -13,23 +13,23 @@ const products = [
   },
   {
     id: 2,
-    name: 'მინაბლოკის სადგამი - პატარა',
+    name: 'Glass Block Pedestal - Small',
     price: 149,
     category: 'Pedestals',
     description: 'Perfect plant stand or display pedestal. Made from 6 glass blocks with wooden top.',
-    image: '/pedestal1.jpg',
+    image: '/padestal1.jpg',
   },
   {
     id: 3,
-    name: 'მინაბლოკის სადგამი - დიდი',
+    name: 'Glass Block Pedestal - Large',
     price: 229,
     category: 'Pedestals',
     description: 'Tall display pedestal with LED fairy lights inside. Creates a magical warm glow.',
-    image: '/pedestal2.jpg',
+    image: '/padestal2.jpg',
   },
   {
     id: 4,
-    name: 'მინაბლოკის მაგიდა',
+    name: 'Glass Block Side Table',
     price: 199,
     category: 'Tables',
     description: 'Compact side table perfect next to a sofa or bed. Made from 4 glass blocks.',
@@ -37,15 +37,15 @@ const products = [
   },
   {
     id: 5,
-    name: 'LED ნათებით მინაბლოკის სადგამი',
+    name: 'LED Glow Pedestal',
     price: 279,
     category: 'Pedestals',
     description: 'Glass block pedestal with built-in warm LED lights. Perfect ambiance for any room.',
-    image: '/pedestal3.jpg',
+    image: '/padestal3.jpg',
   },
   {
     id: 6,
-    name: 'ყვავილების სადგამი მინაბლოკისგან',
+    name: 'Custom Glass Block Table',
     price: 499,
     category: 'Custom',
     description: 'Tell us your size and style — we build your dream glass block furniture piece.',
@@ -53,11 +53,11 @@ const products = [
   },
     {
     id: 7,
-    name: 'მინაბლოკის სკამი',
+    name: 'პატარა ზომის ყავის მაგიდა',
     price: 349,
     category: 'Custom',
-    description: 'მინაბლოკის პატარა ზომის სკამი.',
-    image: '/chair1.jpg',
+    description: 'ჟურნალის და ყავის დეკორატიული მაგიდა.',
+    image: '/Chair1.jpg',
   },
 ]
 
@@ -126,9 +126,13 @@ export default function Shop() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {filtered.map(product => (
             <div key={product.id} className="border border-gray-100 rounded-sm hover:shadow-lg transition">
-              <div className="bg-gray-100 h-56 flex items-center justify-center text-gray-400 text-sm">
-                Product Photo
-              </div>
+             <div className="h-56 overflow-hidden bg-gray-100">
+  <img
+    src={product.image}
+    alt={product.name}
+    className="w-full h-full object-cover hover:scale-105 transition duration-300"
+  />
+</div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-2">
                   <h3 className="font-bold text-gray-900">{product.name}</h3>

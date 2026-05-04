@@ -31,18 +31,18 @@ export default function Home() {
             </button>
           </Link>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-2 gap-4">
   <div className="h-64 overflow-hidden rounded-sm bg-gray-100">
     <img src="/table1.jpg" alt="Glass block table" className="w-full h-full object-cover hover:scale-105 transition duration-300" />
   </div>
   <div className="h-64 overflow-hidden rounded-sm bg-gray-100">
-    <img src="/pedestal1.jpg" alt="Glass block pedestal" className="w-full h-full object-cover hover:scale-105 transition duration-300" />
+    <img src="/padestal1.jpg" alt="Glass block pedestal" className="w-full h-full object-cover hover:scale-105 transition duration-300" />
   </div>
   <div className="h-64 overflow-hidden rounded-sm bg-gray-100">
-    <img src="/pedestal2.jpg" alt="Glass block pedestal lit" className="w-full h-full object-cover hover:scale-105 transition duration-300" />
+    <img src="/padestal2.jpg" alt="Glass block pedestal lit" className="w-full h-full object-cover hover:scale-105 transition duration-300" />
   </div>
   <div className="h-64 overflow-hidden rounded-sm bg-gray-100">
-    <img src="/table2.jpg" alt="Glass block side table" className="w-full h-full object-cover hover:scale-105 transition duration-300" />
+    <img src="/Chair1.jpg" alt="Glass block chair" className="w-full h-full object-cover hover:scale-105 transition duration-300" />
   </div>
 </div>
       </section>

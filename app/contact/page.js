@@ -30,7 +30,7 @@ export default function Contact() {
       {/* Navigation */}
       <nav className="bg-white border-b border-gray-200 px-8 py-4 flex justify-between items-center">
         <Link href="/">
-          <h1 className="text-2xl font-bold tracking-tight text-gray-900 cursor-pointer">GLASBLOCK STUDIO</h1>
+          <h1 className="text-2xl font-bold tracking-tight text-gray-900 cursor-pointer">SaMa Studio</h1>
         </Link>
         <div className="flex gap-8 text-sm text-gray-600">
           <Link href="/" className="hover:text-black transition">Home</Link>
@@ -167,7 +167,7 @@ export default function Contact() {
 
       {/* Footer */}
       <footer className="px-8 py-12 text-center text-sm text-gray-400 border-t border-gray-100 mt-8">
-        © 2025 Glasblock Studio. All rights reserved.
+        © 2026 SaMa Studio. All rights reserved.
       </footer>
     </main>
   )

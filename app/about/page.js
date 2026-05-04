@@ -24,7 +24,7 @@ export default function About() {
             We turn glass blocks into furniture people love
           </h2>
           <p className="text-gray-500 text-lg mb-6">
-            Glasblock Studio was born from a simple idea — glass blocks are beautiful, 
+            SaMa Studio was born from a simple idea — glass blocks are beautiful, 
             strong, and completely underused in furniture design. We changed that.
           </p>
           <p className="text-gray-500 text-lg">

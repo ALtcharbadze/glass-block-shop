@@ -83,7 +83,7 @@ export default function Shop() {
       {/* Navigation */}
       <nav className="bg-white border-b border-gray-200 px-8 py-4 flex justify-between items-center">
         <Link href="/">
-          <h1 className="text-2xl font-bold tracking-tight text-gray-900 cursor-pointer">GLASBLOCK STUDIO</h1>
+          <h1 className="text-2xl font-bold tracking-tight text-gray-900 cursor-pointer">SaMa Studio</h1>
         </Link>
         <div className="flex gap-8 text-sm text-gray-600 items-center">
           <Link href="/" className="hover:text-black transition">Home</Link>
@@ -157,7 +157,7 @@ export default function Shop() {
 
       {/* Footer */}
       <footer className="px-8 py-12 text-center text-sm text-gray-400 border-t border-gray-100 mt-16">
-        © 2025 Glasblock Studio. All rights reserved.
+        © 2025 SaMa Studio. All rights reserved.
       </footer>
     </main>
   )

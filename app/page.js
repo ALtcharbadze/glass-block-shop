@@ -5,7 +5,7 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="bg-white border-b border-gray-200 px-8 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold tracking-tight text-gray-900">GLASBLOCK STUDIO</h1>
+        <h1 className="text-2xl font-bold tracking-tight text-gray-900">SaMa Studio</h1>
         <div className="flex gap-8 text-sm text-gray-600">
           <Link href="/" className="hover:text-black transition">Home</Link>
           <Link href="/shop" className="hover:text-black transition">Shop</Link>
@@ -53,25 +53,31 @@ export default function Home() {
           <h3 className="text-2xl font-bold text-gray-900 mb-12 text-center">Our Collections</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: 'Coffee Tables', desc: 'Stunning glass block coffee tables for your living room.' },
-              { title: 'Pedestals & Stands', desc: 'Perfect plant stands and display pedestals with LED lighting.' },
-              { title: 'Custom Orders', desc: 'Tell us your vision and we build it from glass blocks.' },
-            ].map((item) => (
-              <div key={item.title} className="bg-white p-8 rounded-sm shadow-sm hover:shadow-md transition">
-                <div className="bg-gray-100 h-40 mb-6 rounded-sm flex items-center justify-center text-gray-400 text-sm">
-                  Photo
-                </div>
-                <h4 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h4>
-                <p className="text-gray-500 text-sm">{item.desc}</p>
-              </div>
-            ))}
+  { title: 'Coffee Tables', desc: 'Stunning glass block coffee tables for your living room.', image: '/table1.jpg' },
+  { title: 'Pedestals & Stands', desc: 'Perfect plant stands and display pedestals with LED lighting.', image: '/padestal2.jpg' },
+  { title: 'Custom Orders', desc: 'Tell us your vision and we build it from glass blocks.', image: '/custom1.jpg' },
+].map((item) => (
+  <div key={item.title} className="bg-white rounded-sm shadow-sm hover:shadow-md transition overflow-hidden">
+    <div className="h-48 overflow-hidden">
+      <img
+        src={item.image}
+        alt={item.title}
+        className="w-full h-full object-cover hover:scale-105 transition duration-300"
+      />
+    </div>
+    <div className="p-8">
+      <h4 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h4>
+      <p className="text-gray-500 text-sm">{item.desc}</p>
+    </div>
+  </div>
+))}
           </div>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="px-8 py-12 text-center text-sm text-gray-400 border-t border-gray-100">
-        © 2025 Glasblock Studio. All rights reserved.
+        © 2025 SaMa Studio. All rights reserved.
       </footer>
     </main>
   )

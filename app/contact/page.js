@@ -45,11 +45,11 @@ export default function Contact() {
         {/* Left Side - Info */}
         <div>
           <p className="text-sm uppercase tracking-widest text-gray-400 mb-4">Get in touch</p>
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">Contact Us</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">დაგვიკავშირდი</h2>
           <p className="text-gray-500 mb-10">
-            Interested in a piece? Have a custom order in mind? 
-            We'd love to hear from you. All furniture is handcrafted 
-            and made to order — reach out and let's create something unique together.
+            გაინტერესებს რომელიმე ნამუშევარი ან საკუთარი იდეის განხორციელება?
+            მოხარულები ვიქნებით, თუ დაგვიკავშირდები. ყველა ავეჯი ხელით მზადდება და შეკვეთით იქმნება.
+            მოგვწერე და ერთად შევქმნათ რაღაც უნიკალური.
           </p>
 
           <div className="space-y-6">
@@ -58,16 +58,16 @@ export default function Contact() {
               <p className="text-gray-900 font-medium">hello@glasblockstudio.de</p>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-widest text-gray-400 mb-1">Location</p>
-              <p className="text-gray-900 font-medium">Germany</p>
+              <p className="text-xs uppercase tracking-widest text-gray-400 mb-1">ადგილმდებარეობა</p>
+              <p className="text-gray-900 font-medium">საქართველო</p>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-widest text-gray-400 mb-1">Delivery</p>
-              <p className="text-gray-900 font-medium">Shipping within Germany · EU on request</p>
+              <p className="text-xs uppercase tracking-widest text-gray-400 mb-1">მიწოდება</p>
+              <p className="text-gray-900 font-medium">მიწოდება საქართველოს მასშტაბით</p>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-widest text-gray-400 mb-1">Response Time</p>
-              <p className="text-gray-900 font-medium">Within 24–48 hours</p>
+              <p className="text-xs uppercase tracking-widest text-gray-400 mb-1">პასუხის დრო</p>
+              <p className="text-gray-900 font-medium">12-24 საათში</p>
             </div>
           </div>
         </div>
@@ -77,22 +77,22 @@ export default function Contact() {
           {sent ? (
             <div className="h-full flex flex-col items-center justify-center text-center py-16">
               <div className="text-5xl mb-6">✉️</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">Message Sent!</h3>
-              <p className="text-gray-500 mb-8">
-                Thank you for reaching out. We'll get back to you within 24–48 hours.
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">შეტყობინება წარმატებით გაიგზავნა</h3>
+              <p className="text-gray-900 mb-8">
+                 მადლობა ინტერესისთვის. ჩვენი გუნდი დაგიკავშირდება უახლოეს პერიოდში.
               </p>
               <button
                 onClick={() => setSent(false)}
-                className="border border-black px-8 py-3 text-sm uppercase tracking-widest hover:bg-black hover:text-white transition"
+                 className="border border-black px-8 py-3 text-sm uppercase tracking-widest text-black hover:bg-black hover:text-white transition"
               >
-                Send Another Message
+                კიდევ ერთი შეტყობინება
               </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-xs uppercase tracking-widest text-gray-400 mb-2">
-                  Your Name
+                  Name
                 </label>
                 <input
                   type="text"
@@ -101,7 +101,7 @@ export default function Contact() {
                   value={form.name}
                   onChange={handleChange}
                   className="w-full border border-gray-200 px-4 py-3 text-gray-900 focus:outline-none focus:border-black transition"
-                  placeholder="Aleksandra Müller"
+                  placeholder="სახელი გვარი"
                 />
               </div>
 
@@ -116,13 +116,13 @@ export default function Contact() {
                   value={form.email}
                   onChange={handleChange}
                   className="w-full border border-gray-200 px-4 py-3 text-gray-900 focus:outline-none focus:border-black transition"
-                  placeholder="you@email.com"
+                  placeholder="ელფოსტის მისამართი"
                 />
               </div>
 
               <div>
                 <label className="block text-xs uppercase tracking-widest text-gray-400 mb-2">
-                  Subject
+                  თემა
                 </label>
                 <select
                   name="subject"
@@ -130,11 +130,11 @@ export default function Contact() {
                   onChange={handleChange}
                   className="w-full border border-gray-200 px-4 py-3 text-gray-900 focus:outline-none focus:border-black transition"
                 >
-                  <option>General Inquiry</option>
-                  <option>Custom Order</option>
-                  <option>Pricing Question</option>
-                  <option>Shipping Question</option>
-                  <option>Other</option>
+                  <option>ზოგადი</option>
+                  <option>ინდივიდუალური შეკვეთა</option>
+                  <option>ფასი</option>
+                  <option>მიწოდება</option>
+                  <option>სხვა</option>
                 </select>
               </div>
 
@@ -149,7 +149,7 @@ export default function Contact() {
                   value={form.message}
                   onChange={handleChange}
                   className="w-full border border-gray-200 px-4 py-3 text-gray-900 focus:outline-none focus:border-black transition resize-none"
-                  placeholder="Tell us about the piece you have in mind..."
+                  placeholder="მოგვიყევი შენს იდეაზე ან სასურველ დიზაინზე..."
                 />
               </div>
 
@@ -158,7 +158,7 @@ export default function Contact() {
                 disabled={loading}
                 className="w-full bg-black text-white py-4 text-sm uppercase tracking-widest hover:bg-gray-800 transition disabled:opacity-50"
               >
-                {loading ? 'Sending...' : 'Send Message'}
+                {loading ? 'იგზავნება...' : 'შეტყობინების გაგზავნა'}
               </button>
             </form>
           )}

@@ -4,27 +4,40 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="bg-white border-b border-gray-200 px-8 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold tracking-tight text-gray-900">SaMa Studio</h1>
-        <div className="flex gap-8 text-sm text-gray-600">
-          <Link href="/" className="hover:text-black transition">Home</Link>
-          <Link href="/shop" className="hover:text-black transition">Shop</Link>
-          <Link href="/about" className="hover:text-black transition">About</Link>
-          <Link href="/contact" className="hover:text-black transition">Contact</Link>
-        </div>
-      </nav>
+      <nav className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 px-8 py-4 flex items-center justify-between">
+  
+ <Link
+  href="/"
+  className="text-2xl font-semibold tracking-wide text-gray-900 hover:opacity-70 transition"
+>
+  SaMa <span className="font-light">Studio</span>
+</Link>
+
+  {/* Menu RIGHT */}
+  <div className="flex gap-8 text-sm text-gray-600">
+    <Link href="/">მთავარი</Link>
+    <Link href="/shop">კოლექცია</Link>
+    <Link href="/about">ჩვენ შესახებ</Link>
+    <Link href="/contact">დაგვიკავშირდი</Link>
+  </div>
+
+</nav>
 
       {/* Hero Section */}
       <section className="px-8 py-24 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <div>
-          <p className="text-sm uppercase tracking-widest text-gray-400 mb-4">Handcrafted in Germany</p>
-          <h2 className="text-5xl font-bold text-gray-900 leading-tight mb-6">
-            Furniture made from Glass Blocks
-          </h2>
-          <p className="text-gray-500 text-lg mb-8">
-            Unique, modern furniture built from architectural glass blocks. 
-            Each piece is handcrafted and one of a kind — tables, shelves, pedestals and more.
+          <p className="text-sm uppercase tracking-widest text-gray-400 mb-4">
+          Handcrafted in Georgia
           </p>
+
+        <h2 className="text-5xl font-bold text-gray-900 leading-tight mb-6">
+        შუშის ბლოკებით შექმნილი ავეჯი
+        </h2>
+
+      <p className="text-gray-500 text-lg mb-8">
+      უნიკალური, თანამედროვე ავეჯი არქიტექტურული შუშის ბლოკებით.
+        თითოეული ნამუშევარი ხელით მზადდება და სრულიად გამორჩეულია — მაგიდები, თაროები, პედესტალები და სხვა.
+      </p>
           <Link href="/shop">
             <button className="bg-black text-white px-8 py-4 text-sm uppercase tracking-widest hover:bg-gray-800 transition">
               Shop Now
@@ -50,12 +63,12 @@ export default function Home() {
       {/* Featured Categories */}
       <section className="bg-gray-50 px-8 py-20">
         <div className="max-w-6xl mx-auto">
-          <h3 className="text-2xl font-bold text-gray-900 mb-12 text-center">Our Collections</h3>
+          <h3 className="text-2xl font-bold text-gray-900 mb-12 text-center">ჩვენი კოლექცია</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-  { title: 'Coffee Tables', desc: 'Stunning glass block coffee tables for your living room.', image: '/table1.jpg' },
-  { title: 'Pedestals & Stands', desc: 'Perfect plant stands and display pedestals with LED lighting.', image: '/padestal2.jpg' },
-  { title: 'Custom Orders', desc: 'Tell us your vision and we build it from glass blocks.', image: '/custom1.jpg' },
+  { title: 'Coffee Tables', desc: 'შუშის ბლოკებისგან შექმნილი ელეგანტური ყავის მაგიდები, რომლებიც შენს ინტერიერს განსაკუთრებულ ხასიათს შესძენს.', image: '/table1.jpg' },
+  { title: 'Pedestals & Stands', desc: 'იდეალური სადგამები მცენარეებისა და დეკორისთვის, შუშის ბლოკებით და ინტეგრირებული LED განათებით.', image: '/padestal2.jpg' },
+  { title: 'Custom Orders', desc: 'გაგვიზიარე შენი იდეა და ჩვენ მას რეალობად ვაქცევთ.', image: '/custom1.jpg' },
 ].map((item) => (
   <div key={item.title} className="bg-white rounded-sm shadow-sm hover:shadow-md transition overflow-hidden">
     <div className="h-48 overflow-hidden">
@@ -77,7 +90,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="px-8 py-12 text-center text-sm text-gray-400 border-t border-gray-100">
-        © 2025 SaMa Studio. All rights reserved.
+        © 2026 SaMa Studio. All rights reserved.
       </footer>
     </main>
   )

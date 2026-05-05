@@ -3,25 +3,7 @@ import Link from 'next/link'
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 px-8 py-4 flex items-center justify-between">
-  
- <Link
-  href="/"
-  className="text-2xl font-semibold tracking-wide text-gray-900 hover:opacity-70 transition"
->
-  SaMa <span className="font-light">Studio</span>
-</Link>
-
-  {/* Menu RIGHT */}
-  <div className="flex gap-8 text-sm text-gray-600">
-    <Link href="/">მთავარი</Link>
-    <Link href="/shop">კოლექცია</Link>
-    <Link href="/about">ჩვენ შესახებ</Link>
-    <Link href="/contact">დაგვიკავშირდი</Link>
-  </div>
-
-</nav>
+      
 
       {/* Hero Section */}
       <section className="px-8 py-24 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">

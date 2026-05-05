@@ -1,14 +1,14 @@
 'use client'
 import { useState } from 'react'
-import Link from 'next/link'
 
 export default function Contact() {
   const [form, setForm] = useState({
     name: '',
     email: '',
-    subject: 'General Inquiry',
+    subject: 'ზოგადი',
     message: ''
   })
+
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
 
@@ -19,7 +19,6 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
-    // We'll connect real email later
     await new Promise(r => setTimeout(r, 1500))
     setSent(true)
     setLoading(false)
@@ -27,108 +26,103 @@ export default function Contact() {
 
   return (
     <main className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="bg-white border-b border-gray-200 px-8 py-4 flex justify-between items-center">
-        <Link href="/">
-          <h1 className="text-2xl font-bold tracking-tight text-gray-900 cursor-pointer">SaMa Studio</h1>
-        </Link>
-        <div className="flex gap-8 text-sm text-gray-600">
-          <Link href="/" className="hover:text-black transition">Home</Link>
-          <Link href="/shop" className="hover:text-black transition">Shop</Link>
-          <Link href="/about" className="hover:text-black transition">About</Link>
-          <Link href="/contact" className="hover:text-black transition">Contact</Link>
-        </div>
-      </nav>
 
       <div className="max-w-6xl mx-auto px-8 py-16 grid grid-cols-1 md:grid-cols-2 gap-16">
-        
-        {/* Left Side - Info */}
+
+        {/* LEFT */}
         <div>
-          <p className="text-sm uppercase tracking-widest text-gray-400 mb-4">Get in touch</p>
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">დაგვიკავშირდი</h2>
+          <p className="text-sm uppercase tracking-widest text-gray-400 mb-4">
+            დაგვიკავშირდი
+          </p>
+
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            დაგვიკავშირდი
+          </h2>
+
           <p className="text-gray-500 mb-10">
             გაინტერესებს რომელიმე ნამუშევარი ან საკუთარი იდეის განხორციელება?
-            მოხარულები ვიქნებით, თუ დაგვიკავშირდები. ყველა ავეჯი ხელით მზადდება და შეკვეთით იქმნება.
             მოგვწერე და ერთად შევქმნათ რაღაც უნიკალური.
           </p>
 
           <div className="space-y-6">
             <div>
-              <p className="text-xs uppercase tracking-widest text-gray-400 mb-1">Email</p>
-              <p className="text-gray-900 font-medium">hello@glasblockstudio.de</p>
+              <p className="text-xs text-gray-400">ელფოსტა</p>
+              <p className="text-gray-900 font-medium">hello@samastudio.ge</p>
             </div>
+
             <div>
-              <p className="text-xs uppercase tracking-widest text-gray-400 mb-1">ადგილმდებარეობა</p>
+              <p className="text-xs text-gray-400">ადგილმდებარეობა</p>
               <p className="text-gray-900 font-medium">საქართველო</p>
             </div>
+
             <div>
-              <p className="text-xs uppercase tracking-widest text-gray-400 mb-1">მიწოდება</p>
-              <p className="text-gray-900 font-medium">მიწოდება საქართველოს მასშტაბით</p>
+              <p className="text-xs text-gray-400">მიწოდება</p>
+              <p className="text-gray-900 font-medium">მთელ საქართველოში</p>
             </div>
+
             <div>
-              <p className="text-xs uppercase tracking-widest text-gray-400 mb-1">პასუხის დრო</p>
-              <p className="text-gray-900 font-medium">12-24 საათში</p>
+              <p className="text-xs text-gray-400">პასუხის დრო</p>
+              <p className="text-gray-900 font-medium">12–24 საათში</p>
             </div>
           </div>
         </div>
 
-        {/* Right Side - Form */}
+        {/* RIGHT */}
         <div>
           {sent ? (
-            <div className="h-full flex flex-col items-center justify-center text-center py-16">
+            <div className="text-center py-16">
               <div className="text-5xl mb-6">✉️</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">შეტყობინება წარმატებით გაიგზავნა</h3>
-              <p className="text-gray-900 mb-8">
-                 მადლობა ინტერესისთვის. ჩვენი გუნდი დაგიკავშირდება უახლოეს პერიოდში.
+
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                შეტყობინება წარმატებით გაიგზავნა
+              </h3>
+
+              <p className="text-gray-600 mb-8">
+                მადლობა! მალე დაგიკავშირდებით.
               </p>
+
               <button
                 onClick={() => setSent(false)}
-                 className="border border-black px-8 py-3 text-sm uppercase tracking-widest text-black hover:bg-black hover:text-white transition"
+                className="border border-black px-8 py-3 text-sm uppercase tracking-widest text-gray-900 hover:bg-black hover:text-white transition"
               >
-                კიდევ ერთი შეტყობინება
+                ახალი შეტყობინება
               </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
+
               <div>
-                <label className="block text-xs uppercase tracking-widest text-gray-400 mb-2">
-                  Name
-                </label>
+                <label className="text-xs text-gray-400">სახელი</label>
                 <input
-                  type="text"
                   name="name"
                   required
                   value={form.name}
                   onChange={handleChange}
-                  className="w-full border border-gray-200 px-4 py-3 text-gray-900 focus:outline-none focus:border-black transition"
+                  className="w-full border border-gray-400 px-4 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black transition"
                   placeholder="სახელი გვარი"
                 />
               </div>
 
               <div>
-                <label className="block text-xs uppercase tracking-widest text-gray-400 mb-2">
-                  Email Address
-                </label>
+                <label className="text-xs text-gray-400">ელფოსტა</label>
                 <input
                   type="email"
                   name="email"
                   required
                   value={form.email}
                   onChange={handleChange}
-                  className="w-full border border-gray-200 px-4 py-3 text-gray-900 focus:outline-none focus:border-black transition"
-                  placeholder="ელფოსტის მისამართი"
+                  className="w-full border border-gray-400 px-4 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black transition"
+                  placeholder="example@gmail.com"
                 />
               </div>
 
               <div>
-                <label className="block text-xs uppercase tracking-widest text-gray-400 mb-2">
-                  თემა
-                </label>
+                <label className="text-xs text-gray-400">თემა</label>
                 <select
                   name="subject"
                   value={form.subject}
                   onChange={handleChange}
-                  className="w-full border border-gray-200 px-4 py-3 text-gray-900 focus:outline-none focus:border-black transition"
+                  className="w-full border border-gray-400 px-4 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black transition"
                 >
                   <option>ზოგადი</option>
                   <option>ინდივიდუალური შეკვეთა</option>
@@ -139,36 +133,38 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block text-xs uppercase tracking-widest text-gray-400 mb-2">
-                  Message
-                </label>
+                <label className="text-xs text-gray-400">შეტყობინება</label>
                 <textarea
                   name="message"
                   required
                   rows={5}
                   value={form.message}
                   onChange={handleChange}
-                  className="w-full border border-gray-200 px-4 py-3 text-gray-900 focus:outline-none focus:border-black transition resize-none"
-                  placeholder="მოგვიყევი შენს იდეაზე ან სასურველ დიზაინზე..."
+                  className="w-full border border-gray-400 px-4 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black transition"
+                  placeholder="მოგვიყევი შენი იდეის შესახებ..."
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-black text-white py-4 text-sm uppercase tracking-widest hover:bg-gray-800 transition disabled:opacity-50"
+                className="w-full bg-black text-white py-4 text-sm uppercase tracking-widest hover:bg-gray-800 transition"
               >
-                {loading ? 'იგზავნება...' : 'შეტყობინების გაგზავნა'}
+                {loading ? 'იგზავნება...' : 'გაგზავნა'}
               </button>
+
             </form>
           )}
         </div>
+        
       </div>
 
       {/* Footer */}
-      <footer className="px-8 py-12 text-center text-sm text-gray-400 border-t border-gray-100 mt-8">
+      
+      <footer className="px-8 py-4 text-center text-sm text-gray-400 border-t border-gray-100 mt-94">
         © 2026 SaMa Studio. All rights reserved.
       </footer>
+
     </main>
   )
 }

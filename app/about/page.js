@@ -3,18 +3,7 @@ import Link from 'next/link'
 export default function About() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="bg-white border-b border-gray-200 px-8 py-4 flex justify-between items-center">
-        <Link href="/">
-          <h1 className="text-2xl font-bold tracking-tight text-gray-900 cursor-pointer">SaMa Studio</h1>
-        </Link>
-        <div className="flex gap-8 text-sm text-gray-600">
-          <Link href="/" className="hover:text-black transition">Home</Link>
-          <Link href="/shop" className="hover:text-black transition">Shop</Link>
-          <Link href="/about" className="hover:text-black transition">About</Link>
-          <Link href="/contact" className="hover:text-black transition">Contact</Link>
-        </div>
-      </nav>
+     
 
       {/* Hero */}
       <section className="max-w-6xl mx-auto px-8 py-24 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
@@ -150,7 +139,7 @@ export default function About() {
 
       {/* Footer */}
       <footer className="px-8 py-12 text-center text-sm text-gray-400 border-t border-gray-100">
-        © 2025 SaMa Studio · Tbilisi, Georgia · All rights reserved.
+        © 2026 SaMa Studio. All rights reserved.
       </footer>
     </main>
   )

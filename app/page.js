@@ -2,23 +2,24 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-[#cfe3ea]">
       
 
       {/* Hero Section */}
       <section className="px-8 py-24 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <div>
-          <p className="text-sm uppercase tracking-widest text-gray-400 mb-4">
+          <p className="text-sm uppercase tracking-widest text-gray-600 mb-4">
           Handcrafted in Georgia
           </p>
 
         <h2 className="text-5xl font-bold text-gray-900 leading-tight mb-6">
-        შუშის ბლოკებით შექმნილი ავეჯი
+        SaMa Concept Store ექსპერიმენტული ლაბორატორია, ხელნაკეთი ავეჯი
         </h2>
 
-      <p className="text-gray-500 text-lg mb-8">
-      უნიკალური, თანამედროვე ავეჯი არქიტექტურული შუშის ბლოკებით.
-        თითოეული ნამუშევარი ხელით მზადდება და სრულიად გამორჩეულია — მაგიდები, თაროები, პედესტალები და სხვა.
+      <p className="text-gray-700 text-lg mb-8">
+      SaMa არის ექსპერიმენტული ლაბორატორია, სადაც მასალები, ფორმები და იდეები მუდმივად იცვლება და ახალ მნიშვნელობას იძენს. 
+      აქ იქმნება ობიექტები, რომლებიც ერთდროულად არის ფუნქციური და ხელოვნების ნიმუში,
+      არა უბრალოდ ნივთი, არამედ სივრცითი ობიექტი, რომელიც გარემოს ხასიათს და ატმოსფეროს ცვლის.
       </p>
           <Link href="/shop">
             <button className="bg-black text-white px-8 py-4 text-sm uppercase tracking-widest hover:bg-gray-800 transition">
@@ -71,7 +72,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="px-8 py-12 text-center text-sm text-gray-400 border-t border-gray-100">
+      <footer className="bg-white px-8 py-12 text-center text-sm text-gray-400 border-t border-gray-100">
         © 2026 SaMa Studio. All rights reserved.
       </footer>
     </main>

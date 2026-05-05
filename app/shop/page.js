@@ -74,12 +74,13 @@ export default function Shop() {
   }
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen">
 
       <div className="max-w-6xl mx-auto px-8 py-16">
 
         {/* Title */}
-        <h2 className="text-4xl font-bold mb-4">კოლექცია</h2>
+        <h2 className="text-5xl font-bold text-black mb-5">კოლექცია</h2>
+
         <p className="text-gray-500 mb-10">
           ყველა ნაწარმი ხელნაკეთია და მზადდება შეკვეთით.
         </p>
@@ -118,8 +119,8 @@ export default function Shop() {
 
               <div className="p-6">
                 <div className="flex justify-between mb-2">
-                  <h3 className="font-semibold">{product.name}</h3>
-                  <span className="font-semibold">€{product.price}</span>
+                  <h3 className="font-semibold text-black">{product.name}</h3>
+                  <span className="font-semibold text-black">€{product.price}</span>
                 </div>
 
                 <p className="text-sm text-gray-500 mb-6">

@@ -21,7 +21,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ka">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body
+  className={`${geistSans.variable} ${geistMono.variable}`}
+  style={{
+    background: "linear-gradient(to bottom, #d6e3ec, #b8cdd9, #f5f7f9)"
+  }}
+>
         <CartProvider>
 
           {/* Navbar GLOBAL */}

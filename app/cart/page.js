@@ -19,7 +19,7 @@ export default function CartPage() {
         {cart.length === 0 ? (
           <div className="text-center py-24">
             <div className="text-5xl mb-4">🛒</div>
-            <h3 className="text-xl font-bold mb-2">კალათა ცარიელია</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">კალათა ცარიელია</h3>
             <p className="text-gray-500 mb-6">
               დაამატეთ პროდუქტები კოლექციიდან
             </p>

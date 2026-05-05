@@ -25,7 +25,7 @@ export default function Contact() {
   }
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen">
 
       <div className="max-w-6xl mx-auto px-8 py-16 grid grid-cols-1 md:grid-cols-2 gap-16">
 

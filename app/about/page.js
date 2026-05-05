@@ -2,23 +2,22 @@ import Link from 'next/link'
 
 export default function About() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen">
      
 
       {/* Hero */}
       <section className="max-w-6xl mx-auto px-8 py-24 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <div>
-          <p className="text-sm uppercase tracking-widest text-gray-400 mb-4">ჩვენს შესახებ</p>
+          <p className="text-sm uppercase tracking-widest text-gray-600 mb-4">ჩვენს შესახებ</p>
           <h2 className="text-5xl font-bold text-gray-900 leading-tight mb-6">
-            ჩვენ ვაცოცხლებთ კლასიკურ სილამაზეს თანამედროვე სივრცეებში
+            SaMa Concept Store უნიკალური ნივთები
           </h2>
-          <p className="text-gray-500 text-lg mb-6">
-            SaMa Studio მარადიული დიზაინისადმი გატაცებით დაიბადა. ჩვენ გადავწყვიტეთ, 
-            რომ ძველი სტილის ავეჯი გაგვეცოცხლებინა და ვინტაჟური და დეკორატიული სახით
-            სახლებში, კაფეებსა და ბარებში შეგვეტანა და თანამედროვე ცხოვრებაში კლასიკა შემოგვეტანა.
+          <p className="text-gray-700 text-lg mb-6">
+            ჩვენ ვმუშაობთ ხელით შექმნილ, შეზღუდული რაოდენობის უნიკალურ ნივთებზე. 
+            თითოეული ობიექტი არის დროის მიღმა მდგომი კონცეფცია, წარსულის ფორმების გადაკეთება აწმყოს ესთეტიკაში და ფუნქციაში.
             
           </p>
-          <p className="text-gray-500 text-lg">
+          <p className="text-gray-600 text-lg">
             ჩვენი კომპანია ქმნის თითოეულ ნამუშევარს როგორც ხელოვნების ნიმუშს, სადაც ოსტატობა და ელეგანტურობა 
             ჰარმონიულად აერთიანებს წარსულსა და თანამედროვეობას.
           </p>
@@ -39,7 +38,7 @@ export default function About() {
           <h3 className="text-3xl font-bold text-gray-900 mb-6">Meet Salome & Mariami</h3>
           <p className="text-gray-500 max-w-2xl mx-auto text-lg">
             SaMa არის ორი ადამიანის ისტორია, რომლებსაც აერთიანებთ სილამაზის, დეტალების და ხელნაკეთი ხარისხის სიყვარული. 
-            სალომე და მარიამი ერთად გარდაქმნიან შუშის ბლოკებს ავეჯად, რომელიც ადამიანებს უყვარდებათ.
+            ჩვენ გვაინტერესებს უბრალო მასალების ახალი ხედვით გამოყენება, მათი გადაქცევა ობიექტებად, რომლებიც ყოველდღიურ სივრცეს განსხვავებულ მნიშვნელობას ანიჭებს
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-2xl mx-auto">
             <div className="bg-white p-8 rounded-sm shadow-sm">

@@ -87,21 +87,21 @@ export default function Shop() {
   return (
     <main className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="bg-white border-b border-gray-200 px-8 py-4 flex justify-between items-center sticky top-0 z-40">
+      <nav className="bg-white border-b border-gray-200 px-4 py-4 flex justify-between items-center sticky top-0 z-40">
         <Link href="/">
           <h1 className="text-2xl font-bold tracking-tight text-gray-900 cursor-pointer">SaMa Studio</h1>
         </Link>
-        <div className="flex gap-8 text-sm text-gray-600 items-center">
-          <Link href="/" className="hover:text-black transition">მთავარი</Link>
-          <Link href="/shop" className="hover:text-black transition">კოლექცია</Link>
-          <Link href="/about" className="hover:text-black transition">ჩვენს შესახებ</Link>
-          <Link href="/contact" className="hover:text-black transition">დაგვიკავშირდი</Link>
+        <div className="flex gap-4 text-sm text-gray-600 items-center">
+  <Link href="/" className="hover:text-black transition">მთავარი</Link>
+  <Link href="/shop" className="hover:text-black transition">კოლექცია</Link>
+  <Link href="/about" className="hover:text-black transition">ჩვენს შესახებ</Link>
+  <Link href="/contact" className="hover:text-black transition">დაგვიკავშირდი</Link>
 
-          {/* Basket Icon */}
-          <button
-            onClick={() => setShowCart(true)}
-            className="relative p-2 hover:bg-gray-100 rounded-full transition"
-          >
+  {/* Basket Icon */}
+  <button
+    onClick={() => setShowCart(true)}
+    className="relative p-2 hover:bg-gray-100 rounded-full transition ml-2"
+  >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.5 6h13" />
             </svg>

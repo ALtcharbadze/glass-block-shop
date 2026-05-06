@@ -17,6 +17,7 @@ const { addToCart } = useCart()
   product.images ? product.images[0] : product.image
 )
 const [fullscreen, setFullscreen] = useState(false)
+const [added, setAdded] = useState(false)
 
 const currentImages = product.images
   ? product.images
@@ -142,18 +143,31 @@ useEffect(() => {
           </p>
 
           <button
-            onClick={() =>
-  addToCart({
-    ...product,
-    image: product.images
-      ? product.images[0]
-      : product.image,
-  })
-}
-            className="bg-black text-white px-10 py-4 hover:bg-gray-800 transition"
-          >
-            კალათაში დამატება
-          </button>
+  onClick={() => {
+
+    addToCart({
+      ...product,
+      image: product.images
+        ? product.images[0]
+        : product.image,
+    })
+
+    setAdded(true)
+
+    setTimeout(() => {
+      setAdded(false)
+    }, 2000)
+  }}
+  className={`px-10 py-4 transition text-white ${
+    added
+      ? 'bg-green-600'
+      : 'bg-black hover:bg-gray-800'
+  }`}
+>
+  {added
+    ? '✓ დამატებულია'
+    : 'კალათაში დამატება'}
+</button>
 
           {/* DETAILS */}
           <div className="mt-16 border-t border-gray-300 pt-8">
@@ -227,6 +241,17 @@ useEffect(() => {
     >
       ›
     </button>
+
+  </div>
+
+)}
+{/* TOAST */}
+
+{added && (
+
+  <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-black text-white px-6 py-4 rounded-xl shadow-2xl z-[9999]">
+
+    წარმატებით დაემატა კალათაში
 
   </div>
 

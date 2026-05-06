@@ -68,10 +68,24 @@ export default function Contact() {
                   </p>
 
                   <p className="text-lg font-medium text-black">
-                    hello@samastudio.ge
+                    samaconceptstore@gmail.com
                   </p>
                 </div>
 
+<div className="mt-6">
+
+  <p className="text-sm uppercase tracking-widest text-gray-500 mb-2">
+    ტელეფონი
+  </p>
+
+  <a
+    href="tel:+995555000000"
+    className="text-lg md:text-xl text-black hover:text-gray-700 transition"
+  >
+    +995 568 504 726
+  </a>
+
+</div>
                 <div>
                   <p className="text-sm uppercase tracking-widest text-gray-400 mb-2">
                     ადგილმდებარეობა

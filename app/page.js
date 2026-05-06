@@ -6,7 +6,7 @@ export default function Home() {
       
 
       {/* Hero Section */}
-      <section className="px-8 py-24 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <section className="px-4 md:px-8 py-16 md:py-24 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
         <div>
           <p className="text-sm uppercase tracking-widest text-gray-600 mb-4">
           Handcrafted in Georgia

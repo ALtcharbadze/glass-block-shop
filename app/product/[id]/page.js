@@ -87,7 +87,7 @@ useEffect(() => {
   src={selectedImage}
   alt={product.name}
   onClick={() => setFullscreen(true)}
-  className="w-full h-[700px] object-cover cursor-pointer"
+  className="w-full h-[400px] md:h-[700px] object-cover cursor-pointer"
 />
 {/* THUMBNAILS */}
 
@@ -129,7 +129,7 @@ useEffect(() => {
             SaMa Concept Store
           </p>
 
-          <h1 className="text-5xl font-bold text-black mb-6">
+          <h1 className="text-3xl md:text-5xl font-bold text-black mb-6">
             {product.name}
           </h1>
 
@@ -207,7 +207,7 @@ useEffect(() => {
     {/* LEFT */}
     <button
       onClick={prevImage}
-      className="absolute left-6 text-white text-6xl px-4"
+      className="absolute left-2 md:left-6 text-white text-4xl md:text-6xl px-2 md:px-4"
     >
       ‹
     </button>
@@ -223,7 +223,7 @@ useEffect(() => {
     {/* RIGHT */}
     <button
       onClick={nextImage}
-      className="absolute right-6 text-white text-6xl px-4"
+      className="absolute right-2 md:right-6 text-white text-4xl md:text-6xl px-2 md:px-4"
     >
       ›
     </button>

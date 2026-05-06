@@ -6,7 +6,7 @@ export default function CartPage() {
   const { cart, removeFromCart, clearCart, totalItems, totalPrice } = useCart()
 
   return (
-    <main className="bg-white min-h-screen">
+    <main className="min-h-screen bg-[#d6e3ec] flex flex-col">
 
       <div className="max-w-5xl mx-auto px-8 pt-28 pb-16">
         <h2 className="text-3xl font-bold text-gray-900 mb-2">
@@ -102,10 +102,10 @@ export default function CartPage() {
                 </span>
               </div>
 
-              <Link href="/contact">
-                <button className="w-full bg-black text-white py-4 hover:bg-gray-800 transition">
-                  შეკვეთის გაფორმება
-                </button>
+              <Link href="/checkout">
+            <button className="w-full bg-black text-white py-4 hover:bg-gray-800 transition">
+             შეკვეთის გაფორმება
+            </button>
               </Link>
 
               <Link href="/shop">

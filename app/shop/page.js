@@ -6,10 +6,10 @@ import { useCart } from "@/app/context/CartContext";
 const products = [
   {
     id: 1,
-    name: 'მინის ბლოკის საკავა მაგიდა',
+    name: 'მინის ბლოკის მაგიდა',
     price: 349,
     category: 'მაგიდები',
-    description: 'ხელნაკეთი საკავა მაგიდა 12 მინის ბლოკისგან.',
+    description: 'კომპაქტური გვერდითი მაგიდა 4 მინის ბლოკისგან.',
     image: '/table1.jpg',
   },
   {
@@ -17,7 +17,7 @@ const products = [
     name: 'მინის ბლოკის პიედესტალი - პატარა',
     price: 149,
     category: 'პიედესტალები',
-    description: 'შესანიშნავი მცენარის სადგამი ხის ზედაპირით.',
+    description: 'პატარა ზომის სადგამი.',
     image: '/padestal1.jpg',
   },
   {
@@ -25,15 +25,15 @@ const products = [
     name: 'მინის ბლოკის პიედესტალი - დიდი',
     price: 229,
     category: 'პიედესტალები',
-    description: 'მაღალი პიედესტალი LED განათებით შიგნით.',
+    description: 'შესანიშნავი მცენარის სადგამი ხის ზედაპირით.',
     image: '/padestal2.jpg',
   },
   {
     id: 4,
-    name: 'მინის ბლოკის გვერდითი მაგიდა',
+    name: 'მინის ბლოკის მაგიდა',
     price: 199,
     category: 'მაგიდები',
-    description: 'კომპაქტური გვერდითი მაგიდა 4 მინის ბლოკისგან.',
+    description: 'ხელნაკეთი მაგიდა 10 მინის ბლოკისგან.',
     image: '/table2.jpg',
   },
   {

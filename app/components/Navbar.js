@@ -15,7 +15,7 @@ export default function Navbar() {
         href="/"
         className="text-3xl font-semibold tracking-wide text-gray-900"
       >
-        SaMa <span className="font-light">Studio</span>
+        SaMa <span className="font-light">Concept Store</span>
       </Link>
 
       {/* Menu */}

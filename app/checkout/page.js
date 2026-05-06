@@ -138,11 +138,11 @@ export default function Checkout() {
   }
 
   return (
-    <main className="min-h-screen pt-28 pb-20 px-8">
+    <main className="min-h-screen pt-24 md:pt-28 pb-16 md:pb-20 px-4 md:px-8">
 
       <div className="max-w-6xl mx-auto">
 
-        <h1 className="text-5xl font-bold text-black mb-3">
+        <h1 className="text-3xl md:text-5xl font-bold text-black mb-3">
           შეკვეთის გაფორმება
         </h1>
 
@@ -150,7 +150,7 @@ export default function Checkout() {
           აირჩიეთ გადახდის მეთოდი
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10">
 
           {/* LEFT */}
           <div>
@@ -347,57 +347,71 @@ export default function Checkout() {
 
           </div>
 
-          {/* RIGHT */}
-          <div>
+         {/* RIGHT */}
+<div>
 
-            <div className="bg-white border border-gray-200 p-8">
+  <div className="bg-white border border-gray-200 p-5 md:p-8">
 
-              <h2 className="text-2xl font-bold text-black mb-6">
-                შეკვეთის სარეზიუმე
-              </h2>
+    <h2 className="text-2xl font-bold text-black mb-6">
+      შეკვეთის სარეზიუმე
+    </h2>
 
-              <div className="space-y-4">
+    <div className="space-y-5">
 
-                {cart.map((item) => (
-                  <div
-                    key={item.id}
-                    className="flex justify-between border-b border-gray-100 pb-4"
-                  >
+      {cart.map((item) => (
 
-                    <div>
-                      <p className="font-medium text-black">
-                        {item.name}
-                      </p>
+        <div
+          key={item.id}
+          className="flex items-center gap-4 border-b border-gray-100 pb-5"
+        >
 
-                      <p className="text-sm text-gray-500">
-                        რაოდენობა: {item.qty}
-                      </p>
-                    </div>
+          {/* IMAGE */}
+          <img
+            src={item.image}
+            alt={item.name}
+            className="w-24 h-24 md:w-28 md:h-28 object-cover rounded-md"
+          />
 
-                    <p className="font-semibold text-black">
-                      {item.price * item.qty} ლარი
-                    </p>
+          {/* INFO */}
+          <div className="flex-1">
 
-                  </div>
-                ))}
+            <p className="font-semibold text-black text-sm md:text-lg leading-snug">
+              {item.name}
+            </p>
 
-              </div>
-
-              <div className="flex justify-between pt-6 mt-6 border-t border-gray-200">
-
-                <span className="text-xl font-bold text-black">
-                  სულ
-                </span>
-
-                <span className="text-2xl font-bold text-black">
-                  {totalPrice} ლარი
-                </span>
-
-              </div>
-
-            </div>
+            <p className="text-sm text-gray-500 mt-1">
+              რაოდენობა: {item.qty}
+            </p>
 
           </div>
+
+          {/* PRICE */}
+          <p className="font-bold text-black whitespace-nowrap text-sm md:text-lg">
+            {item.price * item.qty} ლარი
+          </p>
+
+        </div>
+
+      ))}
+
+    </div>
+
+    {/* TOTAL */}
+    <div className="flex justify-between items-center pt-6 mt-6 border-t border-gray-200">
+
+      <span className="text-xl md:text-2xl font-bold text-black">
+        სულ
+      </span>
+
+      <span className="text-2xl md:text-3xl font-bold text-black">
+        {totalPrice} ლარი
+      </span>
+
+    </div>
+
+  </div>
+
+</div>
 
         </div>
 

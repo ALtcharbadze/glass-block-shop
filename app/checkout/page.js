@@ -313,14 +313,14 @@ export default function Checkout() {
                         <p><strong>ბანკი:</strong> TBC Bank</p>
                         <p><strong>IBAN:</strong> GE00TB0000000000000000</p>
                         <p><strong>მიმღები:</strong> SaMa Studio</p>
-                        <p><strong>თანხა:</strong> €{totalPrice}</p>
+                        <p><strong>თანხა:</strong> {totalPrice} ლარი</p>
                       </div>
                     ) : (
                       <div className="space-y-2 text-gray-700">
                         <p><strong>ბანკი:</strong> Bank of Georgia</p>
                         <p><strong>IBAN:</strong> GE00BG0000000000000000</p>
                         <p><strong>მიმღები:</strong> SaMa Studio</p>
-                        <p><strong>თანხა:</strong> €{totalPrice}</p>
+                        <p><strong>თანხა:</strong> {totalPrice} ლარი</p>
                       </div>
                     )}
 
@@ -375,7 +375,7 @@ export default function Checkout() {
                     </div>
 
                     <p className="font-semibold text-black">
-                      €{item.price * item.qty}
+                      {item.price * item.qty} ლარი
                     </p>
 
                   </div>
@@ -390,7 +390,7 @@ export default function Checkout() {
                 </span>
 
                 <span className="text-2xl font-bold text-black">
-                  €{totalPrice}
+                  {totalPrice} ლარი
                 </span>
 
               </div>

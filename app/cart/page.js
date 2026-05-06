@@ -51,7 +51,7 @@ export default function CartPage() {
                       {item.name}
                     </p>
                     <p className="text-sm text-gray-500">
-                      €{item.price} × {item.qty}
+                      {item.price} ლარი × {item.qty}
                     </p>
 
                     <button
@@ -63,7 +63,7 @@ export default function CartPage() {
                   </div>
 
                   <p className="font-bold text-gray-900">
-                    €{item.price * item.qty}
+                    {item.price * item.qty} ლარი
                   </p>
                 </div>
               ))}
@@ -89,7 +89,7 @@ export default function CartPage() {
                       {item.name} × {item.qty}
                     </span>
                     <span className="text-gray-900">
-                      €{item.price * item.qty}
+                      {item.price * item.qty} ლარი
                     </span>
                   </div>
                 ))}
@@ -98,7 +98,7 @@ export default function CartPage() {
               <div className="flex justify-between border-t pt-4 mb-6">
                 <span className="font-semibold text-gray-900">სულ</span>
                 <span className="font-bold text-xl text-black">
-                  €{totalPrice}
+                  {totalPrice} ლარი
                 </span>
               </div>
 

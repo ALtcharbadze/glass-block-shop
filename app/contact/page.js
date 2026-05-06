@@ -1,216 +1,145 @@
 'use client'
 
 import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 
-export default function Contact() {
+export default function ContactPage() {
+
+  const [loading, setLoading] = useState(false)
+
+  const [done, setDone] = useState(false)
+
   const [form, setForm] = useState({
     name: '',
     email: '',
-    subject: 'ზოგადი',
+    phone: '',
     message: '',
   })
 
-  const [sent, setSent] = useState(false)
-
   const handleChange = (e) => {
+
     setForm({
       ...form,
       [e.target.name]: e.target.value,
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+
     e.preventDefault()
-    setSent(true)
+
+    setLoading(true)
+
+    try {
+
+      await emailjs.send(
+        'service_kfo7bo7',
+        'template_p45b72m',
+        {
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          message: form.message,
+        },
+        'xAuoQFQRe6t8LheUA'
+      )
+
+      setDone(true)
+
+      setForm({
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+      })
+
+    } catch (error) {
+
+      console.log(error)
+
+      alert('დაფიქსირდა შეცდომა')
+    }
+
+    setLoading(false)
   }
 
   return (
-    <main className="min-h-screen flex flex-col bg-[#dce7f0]">
 
-      {/* CONTENT */}
-      <section className="flex-1 pt-32 pb-20 px-8">
+    <main className="min-h-screen pt-24 md:pt-32 px-4 md:px-8 pb-20">
 
-        <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20">
 
-          {/* HEADER */}
-          <div className="mb-10 text-center">
+        {/* LEFT SIDE */}
 
-            <p className="uppercase tracking-[0.3em] text-sm text-gray-500 mb-4">
-              Contact
-            </p>
+        <div>
 
-            <h1 className="text-6xl font-bold text-black mb-6">
-              დაგვიკავშირდი
-            </h1>
+          <p className="text-sm uppercase tracking-[0.3em] text-gray-500 mb-4">
 
-            <p className="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">
-              გაქვს შეკითხვა, იდეა ან გსურს ინდივიდუალური დიზაინის შეკვეთა?
-              მოგვწერე და ერთად შევქმნათ რაღაც განსაკუთრებული.
-            </p>
+            CONTACT
 
-          </div>
+          </p>
 
-          {/* GRID */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <h1 className="text-3xl md:text-6xl font-bold text-black leading-tight mb-8">
 
-            {/* LEFT */}
-            <div className="bg-white border border-gray-200 p-10">
+            დაგვიკავშირდი
 
-              <h2 className="text-3xl font-bold text-black mb-10">
-                ინფორმაცია
-              </h2>
+          </h1>
 
-              <div className="space-y-10">
+          <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-12 max-w-xl">
 
-                <div>
-                  <p className="text-sm uppercase tracking-widest text-gray-400 mb-2">
-                    ელფოსტა
-                  </p>
+            თუ გაინტერესებთ კონკრეტული დიზაინი,
+            ინდივიდუალური შეკვეთა ან თანამშრომლობა —
+            მოგვწერეთ და მალე დაგიკავშირდებით.
 
-                  <p className="text-lg font-medium text-black">
-                    samaconceptstore@gmail.com
-                  </p>
-                </div>
+          </p>
 
-<div className="mt-6">
+          <div className="space-y-8">
 
-  <p className="text-sm uppercase tracking-widest text-gray-500 mb-2">
-    ტელეფონი
-  </p>
+            {/* PHONE */}
 
-  <a
-    href="tel:+995555000000"
-    className="text-lg md:text-xl text-black hover:text-gray-700 transition"
-  >
-    +995 568 504 726
-  </a>
+            <div>
 
-</div>
-                <div>
-                  <p className="text-sm uppercase tracking-widest text-gray-400 mb-2">
-                    ადგილმდებარეობა
-                  </p>
+              <p className="text-sm uppercase tracking-widest text-gray-500 mb-2">
+                ტელეფონი
+              </p>
 
-                  <p className="text-lg font-medium text-black">
-                    თბილისი, საქართველო
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-sm uppercase tracking-widest text-gray-400 mb-2">
-                    მიწოდება
-                  </p>
-
-                  <p className="text-lg font-medium text-black">
-                    თბილისის მასშტაბით
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-sm uppercase tracking-widest text-gray-400 mb-2">
-                    პასუხის დრო
-                  </p>
-
-                  <p className="text-lg font-medium text-black">
-                    12-24 საათი
-                  </p>
-                </div>
-
-              </div>
+              <a
+                href="tel:+995568504726"
+                className="text-lg md:text-2xl text-black hover:text-gray-600 transition"
+              >
+                +995 568 504 726
+              </a>
 
             </div>
 
-            {/* RIGHT */}
-            <div className="bg-white border border-gray-200 p-10">
+            {/* EMAIL */}
 
-              {!sent ? (
-                <>
-                  <h2 className="text-3xl font-bold text-black mb-10">
-                    მოგვწერე
-                  </h2>
+            <div>
 
-                  <form
-                    onSubmit={handleSubmit}
-                    className="space-y-6"
-                  >
+              <p className="text-sm uppercase tracking-widest text-gray-500 mb-2">
+                ელფოსტა
+              </p>
 
-                    <input
-                      type="text"
-                      name="name"
-                      required
-                      value={form.name}
-                      onChange={handleChange}
-                      placeholder="სახელი"
-                      className="w-full border border-gray-300 px-5 py-4 text-black outline-none focus:border-black"
-                    />
+              <a
+                href="mailto:samaconceptstore@gmail.com"
+                className="text-lg md:text-2xl text-black hover:text-gray-600 transition"
+              >
+                samaconceptstore@gmail.com
+              </a>
 
-                    <input
-                      type="email"
-                      name="email"
-                      required
-                      value={form.email}
-                      onChange={handleChange}
-                      placeholder="ელფოსტა"
-                      className="w-full border border-gray-300 px-5 py-4 text-black outline-none focus:border-black"
-                    />
+            </div>
 
-                    <select
-                      name="subject"
-                      value={form.subject}
-                      onChange={handleChange}
-                      className="w-full border border-gray-300 px-5 py-4 text-black outline-none focus:border-black"
-                    >
-                      <option>ზოგადი</option>
-                      <option>ინდივიდუალური შეკვეთა</option>
-                      <option>ფასი</option>
-                      <option>მიწოდება</option>
-                      <option>სხვა</option>
-                    </select>
+            {/* LOCATION */}
 
-                    <textarea
-                      name="message"
-                      required
-                      rows={7}
-                      value={form.message}
-                      onChange={handleChange}
-                      placeholder="მოგვწერე შენი იდეის შესახებ..."
-                      className="w-full border border-gray-300 px-5 py-4 text-black outline-none focus:border-black resize-none"
-                    />
+            <div>
 
-                    <button
-                      type="submit"
-                      className="w-full bg-black text-white py-4 text-sm uppercase tracking-widest hover:bg-gray-800 transition"
-                    >
-                      გაგზავნა
-                    </button>
+              <p className="text-sm uppercase tracking-widest text-gray-500 mb-2">
+                მდებარეობა
+              </p>
 
-                  </form>
-                </>
-              ) : (
-                <div className="h-full flex flex-col items-center justify-center text-center py-10">
-
-                  <div className="text-6xl mb-6">
-                    ✉️
-                  </div>
-
-                  <h3 className="text-4xl font-bold text-black mb-4">
-                    შეტყობინება გაიგზავნა
-                  </h3>
-
-                  <p className="text-gray-700 mb-8 text-lg">
-                    მადლობა ინტერესისთვის.
-                    მალე დაგიკავშირდებით.
-                  </p>
-
-                  <button
-                    onClick={() => setSent(false)}
-                    className="border border-black px-8 py-4 text-black hover:bg-black hover:text-white transition"
-                  >
-                    ახალი შეტყობინება
-                  </button>
-
-                </div>
-              )}
+              <p className="text-lg md:text-2xl text-black">
+                თბილისი, საქართველო
+              </p>
 
             </div>
 
@@ -218,12 +147,140 @@ export default function Contact() {
 
         </div>
 
-      </section>
+        {/* RIGHT SIDE */}
 
-      {/* FOOTER */}
-      <footer className="border-t border-gray-300 py-8 text-center text-gray-500 text-sm bg-[#dce7f0]">
-        © 2026 SaMa Concept Store. All rights reserved.
-      </footer>
+        <div>
+
+          <form
+            onSubmit={handleSubmit}
+            className="bg-white border border-gray-200 p-5 md:p-10"
+          >
+
+            <h2 className="text-2xl md:text-3xl font-bold text-black mb-8">
+
+              მოგვწერე
+
+            </h2>
+
+            <div className="space-y-5">
+
+              {/* NAME */}
+
+              <div>
+
+                <label className="block text-sm text-gray-600 mb-2">
+                  სახელი
+                </label>
+
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  value={form.name}
+                  onChange={handleChange}
+                  placeholder="თქვენი სახელი"
+                  className="w-full border border-gray-300 px-4 py-4 outline-none focus:border-black transition"
+                />
+
+              </div>
+
+              {/* EMAIL */}
+
+              <div>
+
+                <label className="block text-sm text-gray-600 mb-2">
+                  ელფოსტა
+                </label>
+
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  value={form.email}
+                  onChange={handleChange}
+                  placeholder="example@gmail.com"
+                  className="w-full border border-gray-300 px-4 py-4 outline-none focus:border-black transition"
+                />
+
+              </div>
+
+              {/* PHONE */}
+
+              <div>
+
+                <label className="block text-sm text-gray-600 mb-2">
+                  ტელეფონი
+                </label>
+
+                <input
+                  type="text"
+                  name="phone"
+                  required
+                  value={form.phone}
+                  onChange={handleChange}
+                  placeholder="+995 555 000 000"
+                  className="w-full border border-gray-300 px-4 py-4 outline-none focus:border-black transition"
+                />
+
+              </div>
+
+              {/* MESSAGE */}
+
+              <div>
+
+                <label className="block text-sm text-gray-600 mb-2">
+                  შეტყობინება
+                </label>
+
+                <textarea
+                  name="message"
+                  required
+                  value={form.message}
+                  onChange={handleChange}
+                  placeholder="მოგვწერეთ თქვენი იდეის შესახებ..."
+                  rows={6}
+                  className="w-full border border-gray-300 px-4 py-4 outline-none focus:border-black transition resize-none"
+                />
+
+              </div>
+
+            </div>
+
+            {/* BUTTON */}
+
+            <button
+              type="submit"
+              disabled={loading}
+              className={`w-full mt-8 py-4 text-white transition ${
+                loading
+                  ? 'bg-gray-400'
+                  : 'bg-black hover:bg-gray-800'
+              }`}
+            >
+
+              {loading
+                ? 'იგზავნება...'
+                : 'გაგზავნა'}
+
+            </button>
+
+            {/* SUCCESS */}
+
+            {done && (
+
+              <div className="mt-6 bg-green-100 border border-green-300 text-green-800 px-4 py-4 text-center">
+
+                შეტყობინება წარმატებით გაიგზავნა ✓
+
+              </div>
+
+            )}
+
+          </form>
+
+        </div>
+
+      </div>
 
     </main>
   )

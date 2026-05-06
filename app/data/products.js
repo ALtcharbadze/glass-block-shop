@@ -33,7 +33,7 @@ const products = [
 
   name: 'შუშის ბლოკის მაგიდა',
 
-  price: 199,
+  price: 450.00,
 
   category: 'მაგიდები',
 

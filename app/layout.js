@@ -3,6 +3,7 @@ import "./globals.css";
 import { CartProvider } from "./context/CartContext";
 import Navbar from "./components/Navbar";
 import FloatingInstagram from './components/FloatingInstagram'
+import { Analytics } from "@vercel/analytics/react"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -75,6 +76,18 @@ export default function RootLayout({ children }) {
           </div>
 
         </CartProvider>
+        <CartProvider>
+
+  <Navbar />
+  <FloatingInstagram />
+
+  <div className="pt-10">
+    {children}
+  </div>
+
+</CartProvider>
+
+<Analytics />
       </body>
     </html>
   );

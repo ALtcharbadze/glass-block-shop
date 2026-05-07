@@ -1,10 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
 import { CartProvider } from "./context/CartContext";
-
 import Navbar from "./components/Navbar";
-import FloatingInstagram from "./components/FloatingInstagram";
+import FloatingInstagram from './components/FloatingInstagram'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,31 +16,16 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
 
-  metadataBase: new URL(
-    "https://glass-block-shop.vercel.app"
-  ),
+  metadataBase: new URL("https://glass-block-shop.vercel.app"),
 
-  title:
-    "SaMa Concept Store | Handmade Glass Block Furniture",
+  title: "SaMa Concept Store | Handmade Glass Block Furniture",
 
   description:
     "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები საქართველოში.",
 
-  keywords: [
-    "SaMa Concept Store",
-    "designer furniture",
-    "glass block furniture",
-    "handmade furniture Georgia",
-    "თბილისი ავეჯი",
-    "ხელნაკეთი ავეჯი",
-    "modern furniture",
-    "interior objects",
-  ],
-
   openGraph: {
 
-    title:
-      "SaMa Concept Store | Handmade Glass Block Furniture",
+    title: "SaMa Concept Store | Handmade Glass Block Furniture",
 
     description:
       "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები საქართველოში.",
@@ -66,25 +49,17 @@ export const metadata = {
   },
 
   twitter: {
-
     card: "summary_large_image",
-
-    title:
-      "SaMa Concept Store | Handmade Glass Block Furniture",
-
+    title: "SaMa Concept Store",
     description:
       "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები საქართველოში.",
-
     images: ["/og-image.jpg"],
   },
 };
 
-export default function RootLayout({
-  children,
-}) {
+export default function RootLayout({ children }) {
   return (
     <html lang="ka">
-
       <body
         className={`${geistSans.variable} ${geistMono.variable}`}
         style={{
@@ -92,11 +67,9 @@ export default function RootLayout({
             "linear-gradient(to bottom, #d6e3ec, #b8cdd9, #f5f7f9)",
         }}
       >
-
         <CartProvider>
 
           <Navbar />
-
           <FloatingInstagram />
 
           <div className="pt-10">
@@ -104,9 +77,7 @@ export default function RootLayout({
           </div>
 
         </CartProvider>
-
       </body>
-
     </html>
   );
 }

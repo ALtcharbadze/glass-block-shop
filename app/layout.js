@@ -14,11 +14,38 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+
+
 export const metadata = {
+
   title: "SaMa Concept Store",
-  description: "Handcrafted glass block furniture",
-  viewport: "width=device-width, initial-scale=1",
-};
+
+  description:
+    "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები საქართველოში.",
+
+  keywords: [
+    "SaMa Concept Store",
+    "designer furniture",
+    "glass block furniture",
+    "handmade furniture Georgia",
+    "თბილისი ავეჯი",
+    "ხელნაკეთი ავეჯი",
+    "modern furniture",
+    "interior objects",
+  ],
+
+  openGraph: {
+
+    title: "SaMa Concept Store",
+
+    description:
+      "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები.",
+
+    images: ["/og-image.jpg"],
+
+    type: "website",
+  },
+}
 
 export default function RootLayout({ children }) {
   return (

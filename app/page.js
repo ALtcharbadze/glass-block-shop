@@ -47,25 +47,28 @@ export default function Home() {
       <section className="bg-gray-50 px-8 py-20">
         <div className="max-w-6xl mx-auto">
           <h3 className="text-2xl font-italic text-gray-900 mb-12 text-center">ჩვენი კოლექცია</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center place-items-center">
             {[
   { title: 'Coffee Tables', desc: 'შუშის ბლოკებისგან შექმნილი ელეგანტური ყავის მაგიდები, რომლებიც შენს ინტერიერს განსაკუთრებულ ხასიათს შესძენს.', image: '/table5.jpg' },
-  { title: 'Pedestals & Stands', desc: 'იდეალური სადგამები მცენარეებისა და დეკორისთვის, შუშის ბლოკებით და ინტეგრირებული LED განათებით.', image: '/padestal2.jpg' },
-  { title: 'Custom Orders', desc: 'გაგვიზიარე შენი იდეა და ჩვენ მას რეალობად ვაქცევთ.', image: '/custom1.jpg' },
+  { title: 'Pedestals & Stands', desc: 'იდეალური სადგამები მცენარეებისა და დეკორისთვის, შუშის ბლოკებით და ინტეგრირებული LED განათებით.', image: '/padestal4.jpg' },
 ].map((item) => (
-  <div key={item.title} className="bg-white rounded-sm shadow-sm hover:shadow-md transition overflow-hidden">
-    <div className="h-48 overflow-hidden">
+  <Link
+  href="/shop"
+  key={item.title}
+  className="bg-white rounded-sm shadow-sm hover:shadow-md transition overflow-hidden block"
+>
+    <div className="h-[260px] overflow-hidden">
       <img
         src={item.image}
         alt={item.title}
-        className="w-full h-full object-cover hover:scale-105 transition duration-300"
+        className="w-full h-full object-cover object-center hover:scale-105 transition duration-300"
       />
     </div>
     <div className="p-8">
       <h4 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h4>
       <p className="text-gray-500 text-sm">{item.desc}</p>
     </div>
-  </div>
+  </Link>
 ))}
           </div>
         </div>

@@ -14,8 +14,8 @@ export default function Shop() {
   const categories = [
     'ყველა',
     'მაგიდები',
-    'პიედესტალები',
-    'ინდივიდუალური',
+    'სადგამები',
+    
   ];
 
   const filtered =

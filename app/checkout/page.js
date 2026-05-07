@@ -7,11 +7,9 @@ import { useCart } from '../context/CartContext'
 
 export default function Checkout() {
   const { cart, totalPrice, clearCart } = useCart()
-
-  const [step, setStep] = useState(1)
-  const [method, setMethod] = useState('')
   const [loading, setLoading] = useState(false)
   const [done, setDone] = useState(false)
+const [finalTotal, setFinalTotal] = useState(0)
 
   const [form, setForm] = useState({
     name: '',
@@ -31,55 +29,53 @@ export default function Checkout() {
     .map((item) => `${item.name} × ${item.qty}`)
     .join('\n')
 
-  const handleContinue = (e) => {
-    e.preventDefault()
+const handleContinue = async (e) => {
 
-    if (
-      !form.name ||
-      !form.email ||
-      !form.phone ||
-      !form.address
-    ) {
-      return
-    }
+  e.preventDefault()
 
-    setStep(2)
+  if (
+    !form.name ||
+    !form.email ||
+    !form.phone ||
+    !form.address
+  ) {
+    return
   }
 
-  const handleOrder = async () => {
-    if (!method) return
+  setLoading(true)
 
-    setLoading(true)
+  try {
 
-    try {
-      await emailjs.send(
-        'service_kfo7bo7',
-        'template_rxezl9w',
-        {
-          name: form.name,
-          email: form.email,
-          phone: form.phone,
-          address: form.address,
-          method:
-            method === 'tbc'
-              ? 'TBC Bank'
-              : 'Bank of Georgia',
+    await emailjs.send(
+      'service_kfo7bo7',
+      'template_rxezl9w',
+      {
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        address: form.address,
+        products: productsText,
+        total: totalPrice.toFixed(2),
+      },
+      'xAuoQFQRe6t8LheUA'
+    )
 
-          products: productsText,
-          total: totalPrice,
-        },
-        'xAuoQFQRe6t8LheUA'
-      )
+    setFinalTotal(totalPrice)
 
-      clearCart()
-      setDone(true)
-    } catch (error) {
-      console.log(error)
-      alert('დაფიქსირდა შეცდომა')
-    }
+    clearCart()
 
-    setLoading(false)
+    setDone(true)
+
+  } catch (error) {
+
+    console.log(error)
+
+    alert('დაფიქსირდა შეცდომა')
   }
+
+  setLoading(false)
+}
+
 
   // SUCCESS PAGE
   if (done) {
@@ -91,40 +87,40 @@ export default function Checkout() {
           <div className="text-6xl mb-6">🎉</div>
 
           <h1 className="text-4xl font-bold text-black mb-4">
-            შეკვეთა მიღებულია
+            მადლობა თქვენი შეკვეთისთვის!
           </h1>
 
           <p className="text-gray-700 mb-8">
-            მადლობა შეკვეთისთვის. მალე დაგიკავშირდებით.
+            თქვენი შეკვეთის დეტალები წარმატებით მივიღეთ. ძალიან მალე დაგიკავშირდებით.
           </p>
 
-          <div className="bg-gray-50 border border-gray-200 p-6 text-left mb-8">
+<div className="bg-gray-50 border border-gray-200 p-6 text-left mb-8">
 
-            <h3 className="font-bold text-black mb-4">
-              გადახდის ინფორმაცია
-            </h3>
+  <h3 className="font-bold text-black mb-4">
+    შეკვეთის ინფორმაცია
+  </h3>
 
-            {method === 'tbc' ? (
-              <div className="space-y-2 text-sm text-gray-700">
-                <p><strong>ბანკი:</strong> TBC Bank</p>
-                <p><strong>IBAN:</strong> GE00TB0000000000000000</p>
-                <p><strong>მიმღები:</strong> SaMa Studio</p>
-                <p className="font-bold text-black pt-2">
-                  გადასახდელი თანხა: €{totalPrice}
-                </p>
-              </div>
-            ) : (
-              <div className="space-y-2 text-sm text-gray-700">
-                <p><strong>ბანკი:</strong> Bank of Georgia</p>
-                <p><strong>IBAN:</strong> GE00BG0000000000000000</p>
-                <p><strong>მიმღები:</strong> SaMa Studio</p>
-                <p className="font-bold text-black pt-2">
-                  გადასახდელი თანხა: €{totalPrice}
-                </p>
-              </div>
-            )}
+  <div className="space-y-2 text-sm text-gray-700">
 
-          </div>
+    <p>
+      <strong>სახელი:</strong> {form.name}
+    </p>
+
+    <p>
+      <strong>ტელეფონი:</strong> {form.phone}
+    </p>
+
+    <p>
+      <strong>ელფოსტა:</strong> {form.email}
+    </p>
+
+    <p className="font-bold text-black pt-2">
+      შეკვეთის ჯამი: {finalTotal.toFixed(2)} ლარი
+    </p>
+
+  </div>
+
+</div>
 
           <Link href="/">
             <button className="bg-black text-white px-8 py-4 hover:bg-gray-800 transition">
@@ -156,7 +152,7 @@ export default function Checkout() {
           <div>
 
             {/* STEP 1 */}
-            {step === 1 && (
+            
               <form
                 onSubmit={handleContinue}
                 className="bg-white border border-gray-200 p-8"
@@ -214,136 +210,15 @@ export default function Checkout() {
                   type="submit"
                   className="w-full bg-black text-white py-4 mt-6 hover:bg-gray-800 transition"
                 >
-                  გადახდის მეთოდის არჩევა
+                  {loading
+  ? 'იგზავნება...'
+  : 'შეკვეთის გაგზავნა'}
                 </button>
 
               </form>
-            )}
+            
 
-            {/* STEP 2 */}
-            {step === 2 && (
-              <div>
-
-                <div className="bg-white border border-gray-200 p-8 mb-6">
-
-                  <h2 className="text-2xl font-bold text-black mb-6">
-                    გადახდის მეთოდი
-                  </h2>
-
-                  {/* TBC */}
-                  <div
-                    onClick={() => setMethod('tbc')}
-                    className={`border-2 p-5 cursor-pointer transition mb-4 ${
-                      method === 'tbc'
-                        ? 'border-black bg-gray-50'
-                        : 'border-gray-200'
-                    }`}
-                  >
-
-                    <div className="flex items-center gap-4">
-
-                      <div className="w-5 h-5 rounded-full border-2 border-black flex items-center justify-center">
-
-                        {method === 'tbc' && (
-                          <div className="w-2.5 h-2.5 bg-black rounded-full" />
-                        )}
-
-                      </div>
-
-                      <div>
-                        <p className="font-bold text-black">
-                          🏦 TBC Bank
-                        </p>
-
-                        <p className="text-sm text-gray-600">
-                          საბანკო გადარიცხვა
-                        </p>
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                  {/* BOG */}
-                  <div
-                    onClick={() => setMethod('bog')}
-                    className={`border-2 p-5 cursor-pointer transition ${
-                      method === 'bog'
-                        ? 'border-black bg-gray-50'
-                        : 'border-gray-200'
-                    }`}
-                  >
-
-                    <div className="flex items-center gap-4">
-
-                      <div className="w-5 h-5 rounded-full border-2 border-black flex items-center justify-center">
-
-                        {method === 'bog' && (
-                          <div className="w-2.5 h-2.5 bg-black rounded-full" />
-                        )}
-
-                      </div>
-
-                      <div>
-                        <p className="font-bold text-black">
-                          🏦 Bank of Georgia
-                        </p>
-
-                        <p className="text-sm text-gray-600">
-                          საბანკო გადარიცხვა
-                        </p>
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-                {/* PAYMENT INFO */}
-                {method && (
-                  <div className="bg-white border border-gray-200 p-8 mb-6">
-
-                    <h3 className="text-xl font-bold text-black mb-4">
-                      საბანკო დეტალები
-                    </h3>
-
-                    {method === 'tbc' ? (
-                      <div className="space-y-2 text-gray-700">
-                        <p><strong>ბანკი:</strong> TBC Bank</p>
-                        <p><strong>IBAN:</strong> GE00TB0000000000000000</p>
-                        <p><strong>მიმღები:</strong> SaMa Studio</p>
-                        <p><strong>თანხა:</strong> {totalPrice.toFixed(2)} ლარი</p>
-                      </div>
-                    ) : (
-                      <div className="space-y-2 text-gray-700">
-                        <p><strong>ბანკი:</strong> Bank of Georgia</p>
-                        <p><strong>IBAN:</strong> GE00BG0000000000000000</p>
-                        <p><strong>მიმღები:</strong> SaMa Studio</p>
-                        <p><strong>თანხა:</strong> {totalPrice.toFixed(2)} ლარი</p>
-                      </div>
-                    )}
-
-                  </div>
-                )}
-
-                {/* SUBMIT */}
-                <button
-                  onClick={handleOrder}
-                  disabled={!method || loading}
-                  className={`w-full py-4 transition ${
-                    method
-                      ? 'bg-black text-white hover:bg-gray-800'
-                      : 'bg-gray-400 text-white cursor-not-allowed'
-                  }`}
-                >
-                  {loading
-                    ? 'იგზავნება...'
-                    : 'შეკვეთის გაფორმება'}
-                </button>
-
-              </div>
-            )}
+            
 
           </div>
 

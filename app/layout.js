@@ -1,8 +1,10 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+
 import { CartProvider } from "./context/CartContext";
+
 import Navbar from "./components/Navbar";
-import FloatingInstagram from './components/FloatingInstagram'
+import FloatingInstagram from "./components/FloatingInstagram";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,11 +16,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
-
 export const metadata = {
 
-  title: "SaMa Concept Store",
+  metadataBase: new URL(
+    "https://glass-block-shop.vercel.app"
+  ),
+
+  title:
+    "SaMa Concept Store | Handmade Glass Block Furniture",
 
   description:
     "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები საქართველოში.",
@@ -36,39 +41,72 @@ export const metadata = {
 
   openGraph: {
 
-    title: "SaMa Concept Store",
+    title:
+      "SaMa Concept Store | Handmade Glass Block Furniture",
 
     description:
-      "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები.",
+      "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები საქართველოში.",
 
-    images: ["/og-image.jpg"],
+    url: "https://glass-block-shop.vercel.app",
+
+    siteName: "SaMa Concept Store",
+
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "SaMa Concept Store",
+      },
+    ],
+
+    locale: "ka_GE",
 
     type: "website",
   },
-}
 
-export default function RootLayout({ children }) {
+  twitter: {
+
+    card: "summary_large_image",
+
+    title:
+      "SaMa Concept Store | Handmade Glass Block Furniture",
+
+    description:
+      "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები საქართველოში.",
+
+    images: ["/og-image.jpg"],
+  },
+};
+
+export default function RootLayout({
+  children,
+}) {
   return (
     <html lang="ka">
+
       <body
-  className={`${geistSans.variable} ${geistMono.variable}`}
-  style={{
-    background: "linear-gradient(to bottom, #d6e3ec, #b8cdd9, #f5f7f9)"
-  }}
->
+        className={`${geistSans.variable} ${geistMono.variable}`}
+        style={{
+          background:
+            "linear-gradient(to bottom, #d6e3ec, #b8cdd9, #f5f7f9)",
+        }}
+      >
+
         <CartProvider>
 
-          {/* Navbar GLOBAL */}
           <Navbar />
-          <FloatingInstagram /> 
 
-          {/* Page Content */}
+          <FloatingInstagram />
+
           <div className="pt-10">
             {children}
           </div>
 
         </CartProvider>
+
       </body>
+
     </html>
   );
 }

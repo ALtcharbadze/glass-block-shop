@@ -5,6 +5,13 @@ import { useParams } from 'next/navigation'
 import products from '@/app/data/products'
 import { useCart } from '@/app/context/CartContext'
 
+import {
+  Truck,
+  ShieldCheck,
+  Sparkles,
+  Hammer,
+} from 'lucide-react'
+
 export default function ProductPage() {
 
   const params = useParams()
@@ -197,7 +204,7 @@ export default function ProductPage() {
 
           <p className="text-2xl md:text-3xl font-semibold text-black mb-8">
 
-            {product.price} ლარი
+            {product.price.toFixed(2)} ლარი
 
           </p>
 
@@ -248,25 +255,24 @@ export default function ProductPage() {
 
             </h3>
 
-            <ul className="space-y-3 text-gray-700">
+<div className="space-y-5 text-gray-700">
 
-              <li>
-                • ხელნაკეთი პროდუქტი
-              </li>
+  {product.details.map((detail, index) => (
 
-              <li>
-                • საქართველოში დამზადებული
-              </li>
+    <div
+  key={index}
+  className="flex items-center gap-4"
+>
 
-              <li>
-                • პრემიუმ ხარისხის მინის ბლოკები
-              </li>
+  <p>
+    {detail}
+  </p>
 
-              <li>
-                • ინდივიდუალური დიზაინის შესაძლებლობა
-              </li>
+</div>
 
-            </ul>
+  ))}
+
+</div>
 
           </div>
 

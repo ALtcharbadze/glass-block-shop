@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "./context/CartContext";
 import Navbar from "./components/Navbar";
+import FloatingInstagram from './components/FloatingInstagram'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
 
           {/* Navbar GLOBAL */}
           <Navbar />
+          <FloatingInstagram /> 
 
           {/* Page Content */}
           <div className="pt-10">

@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { useCart } from '../context/CartContext'
+import { FiInstagram } from 'react-icons/fi'
 
 export default function Navbar() {
 

@@ -75,10 +75,31 @@ export function CartProvider({ children }) {
 
   const removeFromCart = (id) => {
 
-    setCart(
-      cart.filter((item) => item.id !== id)
-    )
-  }
+  setCart((prev) => {
+
+    return prev
+      .map((item) => {
+
+        if (item.id === id) {
+
+          // decrease quantity
+          if (item.qty > 1) {
+            return {
+              ...item,
+              qty: item.qty - 1,
+            }
+          }
+
+          // remove completely if qty = 1
+          return null
+        }
+
+        return item
+      })
+      .filter(Boolean)
+
+  })
+}
 
   const clearCart = () => {
     setCart([])

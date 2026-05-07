@@ -1,70 +1,37 @@
 import { Images } from "lucide-react"
 
 const products = [
-  {
-    id: 1,
-    name: 'მინის ბლოკის საკავა მაგიდა',
-    price: 349,
-    category: 'მაგიდები',
-    description: 'ხელნაკეთი საკავა მაგიდა 12 მინის ბლოკისგან.',
-    image: '/table1.jpg',
-  },
 
-  {
-    id: 2,
-    name: 'მინის ბლოკის პიედესტალი - პატარა',
-    price: 149,
-    category: 'პიედესტალები',
-    description: 'შესანიშნავი მცენარის სადგამი ხის ზედაპირით.',
-    image: '/padestal1.jpg',
-  },
-
-  {
-    id: 3,
-    name: 'მინის ბლოკის პიედესტალი - დიდი',
-    price: 229,
-    category: 'პიედესტალები',
-    description: 'მაღალი პიედესტალი LED განათებით შიგნით.',
-    image: '/padestal2.jpg',
-  },
 
 {
-  id: 4,
+  id: 1,
 
-  name: 'შუშის ბლოკის მაგიდა',
+  name: 'SaMa Flux Object 01',
 
   price: 450.00,
 
   category: 'მაგიდები',
 
-  description: 'კომპაქტური გვერდითი მაგიდა 10 მინის ბლოკისგან.',
+  description: 'წარმოგიდგენთ SaMa Flux Object 01, უნიკალურ ხელნაკეთ ყავის მაგიდას, რომელიც შექმნილია განსაკუთრებული გემოვნებისა და თანამედროვე სტილისთვის. მაგიდა დამზადებულია უმაღლესი ხარისხის იტალიური მინა ბლოკისგან. იდეალურად მოერგება როგორც ინტერიერს, ისე ექსტერიერს, სივრცეს შესძენს სიმსუბუქეს და გამორჩეულ ხასიათს.',
 
   images: [
-    '/table4.jpg',
+    '/table1.jpg',
+    '/table2.jpg',
     '/table3.jpg',
-    '/table5.jpg'
+    '/table4.jpg',
+    '/table5.jpg',
+    '/table6.jpg',
+    '/table7.jpg'
+  ],
+    details: [
+    '📐სიგრძე: 57 სმ',
+    '📐სიგანე: 38 სმ',
+    '📐სიმაღლე: 47 სმ',
   ],
 
   videos: [],
-},
+}
 
-  {
-    id: 5,
-    name: 'LED განათების პიედესტალი',
-    price: 279,
-    category: 'პიედესტალები',
-    description: 'მინის ბლოკის პიედესტალი ჩაშენებული LED განათებით.',
-    image: '/padestal3.jpg',
-  },
-
-  {
-    id: 6,
-    name: 'ინდივიდუალური შეკვეთა',
-    price: 499,
-    category: 'ინდივიდუალური',
-    description: 'გვითხარით თქვენი ზომა და სტილი — ჩვენ ავაშენებთ.',
-    image: '/custom1.jpg',
-  },
 ]
 
 export default products

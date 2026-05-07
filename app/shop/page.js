@@ -96,7 +96,7 @@ export default function Shop() {
                   </h3>
 
                   <span className="font-semibold text-black whitespace-nowrap">
-                    {product.price} ლარი
+                    {product.price.toFixed(2)} ლარი
                   </span>
 
                 </div>

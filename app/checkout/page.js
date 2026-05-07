@@ -313,14 +313,14 @@ export default function Checkout() {
                         <p><strong>ბანკი:</strong> TBC Bank</p>
                         <p><strong>IBAN:</strong> GE00TB0000000000000000</p>
                         <p><strong>მიმღები:</strong> SaMa Studio</p>
-                        <p><strong>თანხა:</strong> {totalPrice} ლარი</p>
+                        <p><strong>თანხა:</strong> {totalPrice.toFixed(2)} ლარი</p>
                       </div>
                     ) : (
                       <div className="space-y-2 text-gray-700">
                         <p><strong>ბანკი:</strong> Bank of Georgia</p>
                         <p><strong>IBAN:</strong> GE00BG0000000000000000</p>
                         <p><strong>მიმღები:</strong> SaMa Studio</p>
-                        <p><strong>თანხა:</strong> {totalPrice} ლარი</p>
+                        <p><strong>თანხა:</strong> {totalPrice.toFixed(2)} ლარი</p>
                       </div>
                     )}
 
@@ -353,7 +353,7 @@ export default function Checkout() {
   <div className="bg-white border border-gray-200 p-5 md:p-8">
 
     <h2 className="text-2xl font-bold text-black mb-6">
-      შეკვეთის სარეზიუმე
+      შეკვეთის დეტალები
     </h2>
 
     <div className="space-y-5">
@@ -387,7 +387,7 @@ export default function Checkout() {
 
           {/* PRICE */}
           <p className="font-bold text-black whitespace-nowrap text-sm md:text-lg">
-            {item.price * item.qty} ლარი
+            {(item.price.toFixed(2) * item.qty).toFixed(2)} ლარი
           </p>
 
         </div>
@@ -404,7 +404,7 @@ export default function Checkout() {
       </span>
 
       <span className="text-2xl md:text-3xl font-bold text-black">
-        {totalPrice} ლარი
+        {totalPrice.toFixed(2)} ლარი
       </span>
 
     </div>

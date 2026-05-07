@@ -63,7 +63,7 @@ export default function CartPage() {
                   </div>
 
                   <p className="font-bold text-gray-900">
-                    {item.price * item.qty} ლარი
+                    {(item.price * item.qty).toFixed(2)} ლარი
                   </p>
                 </div>
               ))}
@@ -79,7 +79,7 @@ export default function CartPage() {
             {/* RIGHT - SUMMARY */}
             <div className="bg-gray-50 p-6 rounded-sm shadow-sm">
               <h3 className="font-bold text-lg mb-6 text-gray-900">
-                შეკვეთის სარეზიუმე
+                შეკვეთის დეტალები
               </h3>
 
               <div className="space-y-3 mb-6">
@@ -89,7 +89,7 @@ export default function CartPage() {
                       {item.name} × {item.qty}
                     </span>
                     <span className="text-gray-900">
-                      {item.price * item.qty} ლარი
+                      {(item.price.toFixed(2) * item.qty).toFixed(2)} ლარი
                     </span>
                   </div>
                 ))}
@@ -98,7 +98,7 @@ export default function CartPage() {
               <div className="flex justify-between border-t pt-4 mb-6">
                 <span className="font-semibold text-gray-900">სულ</span>
                 <span className="font-bold text-xl text-black">
-                  {totalPrice} ლარი
+                  {totalPrice.toFixed(2)} ლარი
                 </span>
               </div>
 

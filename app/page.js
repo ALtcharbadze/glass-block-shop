@@ -12,7 +12,7 @@ export default function Home() {
           Handcrafted in Georgia
           </p>
 
-        <h2 className="text-5xl font-bold text-gray-900 leading-tight mb-6">
+        <h2 className="text-5xl font-italic text-gray-900 leading-tight mb-6">
         SaMa Concept Store ექსპერიმენტული ლაბორატორია, ხელნაკეთი ავეჯი
         </h2>
 
@@ -32,13 +32,13 @@ export default function Home() {
     <img src="/table1.jpg" alt="Glass block table" className="w-full h-full object-cover hover:scale-105 transition duration-300" />
   </div>
   <div className="h-64 overflow-hidden rounded-sm bg-gray-100">
-    <img src="/padestal1.jpg" alt="Glass block pedestal" className="w-full h-full object-cover hover:scale-105 transition duration-300" />
+    <img src="/table2.jpg" alt="Glass block pedestal" className="w-full h-full object-cover hover:scale-105 transition duration-300" />
   </div>
   <div className="h-64 overflow-hidden rounded-sm bg-gray-100">
-    <img src="/padestal2.jpg" alt="Glass block pedestal lit" className="w-full h-full object-cover hover:scale-105 transition duration-300" />
+    <img src="/table3.jpg" alt="Glass block pedestal lit" className="w-full h-full object-cover hover:scale-105 transition duration-300" />
   </div>
   <div className="h-64 overflow-hidden rounded-sm bg-gray-100">
-    <img src="/Chair1.jpg" alt="Glass block chair" className="w-full h-full object-cover hover:scale-105 transition duration-300" />
+    <img src="/table4.jpg" alt="Glass block chair" className="w-full h-full object-cover hover:scale-105 transition duration-300" />
   </div>
 </div>
       </section>
@@ -46,10 +46,10 @@ export default function Home() {
       {/* Featured Categories */}
       <section className="bg-gray-50 px-8 py-20">
         <div className="max-w-6xl mx-auto">
-          <h3 className="text-2xl font-bold text-gray-900 mb-12 text-center">ჩვენი კოლექცია</h3>
+          <h3 className="text-2xl font-italic text-gray-900 mb-12 text-center">ჩვენი კოლექცია</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-  { title: 'Coffee Tables', desc: 'შუშის ბლოკებისგან შექმნილი ელეგანტური ყავის მაგიდები, რომლებიც შენს ინტერიერს განსაკუთრებულ ხასიათს შესძენს.', image: '/table1.jpg' },
+  { title: 'Coffee Tables', desc: 'შუშის ბლოკებისგან შექმნილი ელეგანტური ყავის მაგიდები, რომლებიც შენს ინტერიერს განსაკუთრებულ ხასიათს შესძენს.', image: '/table5.jpg' },
   { title: 'Pedestals & Stands', desc: 'იდეალური სადგამები მცენარეებისა და დეკორისთვის, შუშის ბლოკებით და ინტეგრირებული LED განათებით.', image: '/padestal2.jpg' },
   { title: 'Custom Orders', desc: 'გაგვიზიარე შენი იდეა და ჩვენ მას რეალობად ვაქცევთ.', image: '/custom1.jpg' },
 ].map((item) => (

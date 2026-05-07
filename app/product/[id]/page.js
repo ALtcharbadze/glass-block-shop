@@ -22,11 +22,15 @@ export default function ProductPage() {
 
   const { addToCart } = useCart()
 
-  const [selectedImage, setSelectedImage] = useState(
-    product?.images
-      ? product.images[0]
-      : product?.image
-  )
+ const [selectedImage, setSelectedImage] = useState(null)
+
+useEffect(() => {
+  if (product) {
+    setSelectedImage(
+      product.images?.[0] || product.image
+    )
+  }
+}, [product])
 
   const [fullscreen, setFullscreen] = useState(false)
 

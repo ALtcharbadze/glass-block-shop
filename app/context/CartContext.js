@@ -1,6 +1,11 @@
 'use client'
 
-import { createContext, useContext, useState } from 'react'
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+} from 'react'
 
 const CartContext = createContext()
 
@@ -8,9 +13,30 @@ export function CartProvider({ children }) {
 
   const [cart, setCart] = useState([])
 
+  // LOAD CART FROM LOCAL STORAGE
+  useEffect(() => {
+
+    const savedCart =
+      localStorage.getItem('cart')
+
+    if (savedCart) {
+      setCart(JSON.parse(savedCart))
+    }
+
+  }, [])
+
+  // SAVE CART TO LOCAL STORAGE
+  useEffect(() => {
+
+    localStorage.setItem(
+      'cart',
+      JSON.stringify(cart)
+    )
+
+  }, [cart])
+
   const addToCart = (product) => {
 
-    // FIX MULTIPLE IMAGES
     const normalizedProduct = {
       ...product,
       image: product.images

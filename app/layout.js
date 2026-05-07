@@ -53,9 +53,10 @@ openGraph: {
     title: "SaMa Concept Store",
     description:
       "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები საქართველოში.",
-    images: ["/og-image.jpg"],
+    images: ["https://www.samaconceptstore.ge/og-image.jpg"],
   },
 };
+
 
 export default function RootLayout({ children }) {
   return (

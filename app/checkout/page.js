@@ -115,7 +115,7 @@ const handleContinue = async (e) => {
     </p>
 
     <p className="font-bold text-black pt-2">
-      შეკვეთის ჯამი: {finalTotal.toFixed(2)} ლარი
+      გადასახდელი თანხა: {finalTotal.toFixed(2)} ლარი
     </p>
 
   </div>
@@ -142,8 +142,8 @@ const handleContinue = async (e) => {
           შეკვეთის გაფორმება
         </h1>
 
-        <p className="text-gray-700 mb-12">
-          აირჩიეთ გადახდის მეთოდი
+        <p className="text-gray-700 text-lg mb-10">
+          შეავსეთ ქვემოთ მოცემული ფორმა
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10">

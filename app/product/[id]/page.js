@@ -22,15 +22,16 @@ export default function ProductPage() {
 
   const { addToCart } = useCart()
 
- const [selectedImage, setSelectedImage] = useState(null)
+  // FIXED
+  const [selectedImage, setSelectedImage] = useState(null)
 
-useEffect(() => {
-  if (product) {
-    setSelectedImage(
-      product.images?.[0] || product.image
-    )
-  }
-}, [product])
+  useEffect(() => {
+    if (product) {
+      setSelectedImage(
+        product.images?.[0] || product.image
+      )
+    }
+  }, [product])
 
   const [fullscreen, setFullscreen] = useState(false)
 
@@ -147,12 +148,14 @@ useEffect(() => {
 
           <div className="bg-white overflow-hidden border border-gray-200">
 
-            <img
-              src={selectedImage}
-              alt={product.name}
-              onClick={() => setFullscreen(true)}
-              className="w-full h-[400px] md:h-[700px] object-cover cursor-pointer"
-            />
+            {selectedImage && (
+              <img
+                src={selectedImage}
+                alt={product.name}
+                onClick={() => setFullscreen(true)}
+                className="w-full h-[400px] md:h-[700px] object-cover cursor-pointer"
+              />
+            )}
 
           </div>
 
@@ -259,24 +262,24 @@ useEffect(() => {
 
             </h3>
 
-<div className="space-y-5 text-gray-700">
+            <div className="space-y-5 text-gray-700">
 
-  {product.details.map((detail, index) => (
+              {product.details.map((detail, index) => (
 
-    <div
-  key={index}
-  className="flex items-center gap-4"
->
+                <div
+                  key={index}
+                  className="flex items-center gap-4"
+                >
 
-  <p>
-    {detail}
-  </p>
+                  <p>
+                    {detail}
+                  </p>
 
-</div>
+                </div>
 
-  ))}
+              ))}
 
-</div>
+            </div>
 
           </div>
 
@@ -286,7 +289,7 @@ useEffect(() => {
 
       {/* FULLSCREEN GALLERY */}
 
-      {fullscreen && (
+      {fullscreen && selectedImage && (
 
         <div
           onClick={() => setFullscreen(false)}

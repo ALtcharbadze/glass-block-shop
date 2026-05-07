@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
 
-  metadataBase: new URL("https://glass-block-shop.vercel.app"),
+  metadataBase: new URL("https://www.samaconceptstore.ge"),
 
   title: "SaMa Concept Store | Handmade Glass Block Furniture",
 
@@ -30,7 +30,7 @@ export const metadata = {
     description:
       "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები საქართველოში.",
 
-    url: "https://glass-block-shop.vercel.app",
+    url: "https://www.samaconceptstore.ge",
 
     siteName: "SaMa Concept Store",
 

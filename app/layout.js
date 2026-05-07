@@ -25,28 +25,28 @@ export const metadata = {
   description:
     "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები საქართველოში.",
 
-  openGraph: {
+openGraph: {
+  title: "SaMa Concept Store | Handmade Glass Block Furniture",
 
-    title: "SaMa Concept Store | Handmade Glass Block Furniture",
+  description:
+    "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები საქართველოში.",
 
-    description:
-      "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები საქართველოში.",
+  url: "https://www.samaconceptstore.ge",
 
-    url: "https://www.samaconceptstore.ge",
+  siteName: "SaMa Concept Store",
 
-    siteName: "SaMa Concept Store",
+  images: [
+    {
+      url: "https://www.samaconceptstore.ge/og-image.jpg",
+      width: 1200,
+      height: 630,
+      alt: "SaMa Concept Store",
+    },
+  ],
 
-    images: [
-      {
-        url: "/og-image.jpg",
-        alt: "SaMa Concept Store",
-      },
-    ],
-
-    locale: "ka_GE",
-
-    type: "website",
-  },
+  locale: "ka_GE",
+  type: "website",
+},
 
   twitter: {
     card: "summary_large_image",

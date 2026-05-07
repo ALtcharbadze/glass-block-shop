@@ -4,6 +4,7 @@ import { CartProvider } from "./context/CartContext";
 import Navbar from "./components/Navbar";
 import FloatingInstagram from './components/FloatingInstagram'
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -88,6 +89,7 @@ export default function RootLayout({ children }) {
 </CartProvider>
 
 <Analytics />
+<SpeedInsights />
       </body>
     </html>
   );

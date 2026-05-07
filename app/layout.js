@@ -41,7 +41,7 @@ export const metadata = {
     description:
       "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები.",
 
-    images: ["/og-image.jpg"],
+    images: ["/og-image1.jpg"],
 
     type: "website",
   },

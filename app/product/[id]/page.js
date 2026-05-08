@@ -91,31 +91,56 @@ export default function ProductPage() {
 
   const handleTouchStart = ({ targetTouches }) => {
 
-    setTouchStartX(targetTouches[0].clientX)
+    // IGNORE PINCH ZOOM
+    if (targetTouches.length > 1) return
+
+    setTouchStartX(
+      targetTouches[0].clientX
+    )
   }
 
   // TOUCH MOVE
 
   const handleTouchMove = ({ targetTouches }) => {
 
-    setTouchEndX(targetTouches[0].clientX)
+    // IGNORE PINCH ZOOM
+    if (targetTouches.length > 1) return
+
+    setTouchEndX(
+      targetTouches[0].clientX
+    )
   }
 
   // TOUCH END
 
   const handleTouchEnd = () => {
 
-    const distance = touchStartX - touchEndX
+    // NO SWIPE
+    if (
+      touchStartX === 0 ||
+      touchEndX === 0
+    ) {
+      return
+    }
 
+    const distance =
+      touchStartX - touchEndX
+
+    // SWIPE LEFT
     if (distance > 50) {
 
       nextImage()
     }
 
+    // SWIPE RIGHT
     if (distance < -50) {
 
       prevImage()
     }
+
+    // RESET
+    setTouchStartX(0)
+    setTouchEndX(0)
   }
 
   // KEYBOARD CONTROLS

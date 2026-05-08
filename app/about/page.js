@@ -24,7 +24,7 @@ export default function About() {
         </div>
         <div className="bg-gray-100 h-96 rounded-sm flex items-center justify-center text-gray-400 text-sm">
           <img
-          src="/StudioPhoto.jpg"
+          src="/logo.jpg"
           alt="Studio Photo"
           className="w-full h-full object-cover"
         />

@@ -53,6 +53,15 @@ export const metadata = {
     "თანამედროვე ავეჯი",
     "ლუქს ინტერიერი",
     "ვინტაჟური დიზაინი",
+    "დეკორი",
+    "ხელნაკეთი ნივთები",
+    "ინტერიერის დიზაინი",
+    "მინის ბლოკის ავეჯი",
+    "კონცეპტუალური ავეჯი",
+    "ინოვაციური დიზაინი",
+    "დიზაინერული ნივთები",
+    "მინაბლოკი",
+    "მინაბლოკის ავეჯი",
   ],
 
   authors: [
@@ -72,9 +81,9 @@ export const metadata = {
   },
 
   icons: {
-    icon: "/logo.jpg",
-    shortcut: "/logo.jpg",
-    apple: "/logo.jpg",
+      icon: "/logo.png",
+      shortcut: "/logo.png",
+      apple: "/logo.png",
   },
 
   openGraph: {
@@ -165,7 +174,7 @@ export default function RootLayout({ children }) {
                 "https://www.samaconceptstore.ge",
 
               logo:
-                "https://www.samaconceptstore.ge/logo.jpg",
+                "https://www.samaconceptstore.ge/logo.png",
 
               image:
                 "https://www.samaconceptstore.ge/og-image.jpg",

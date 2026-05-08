@@ -9,8 +9,6 @@ import PageTransition from "./components/PageTransition";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -24,13 +22,64 @@ const geistMono = Geist_Mono({
 export const metadata = {
   metadataBase: new URL("https://www.samaconceptstore.ge"),
 
-  title: "SaMa Concept Store | Handmade Glass Block Furniture",
+  title: {
+    default:
+      "SaMa Concept Store | Handmade Glass Block Furniture",
+
+    template:
+      "%s | SaMa Concept Store",
+  },
 
   description:
-    "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები საქართველოში.",
+    "SaMa Concept Store - ხელნაკეთი ნივთები რომლებიც გარდაქმნიან სივრცეს, ახალი სიცოცხლე თანამედროვე გარემოსთვის Handcrafted in Georgia",
+
+  keywords: [
+    "SaMa Concept Store",
+    "Glass Furniture",
+    "Glass Block Furniture",
+    "Handmade Furniture",
+    "Luxury Interior Design",
+    "Modern Furniture Georgia",
+    "Designer Furniture",
+    "Interior Objects",
+    "Glass Block Table",
+    "Furniture Tbilisi",
+    "უნიკალური ავეჯი",
+    "ხელნაკეთი ავეჯი",
+    "მინის ავეჯი",
+    "დიზაინერული ავეჯი",
+    "ინტერიერის ობიექტები",
+    "საქართველოში ავეჯი",
+    "თანამედროვე ავეჯი",
+    "ლუქს ინტერიერი",
+    "ვინტაჟური დიზაინი",
+  ],
+
+  authors: [
+    {
+      name: "SaMa Concept Store",
+    },
+  ],
+
+  creator: "SaMa Concept Store",
+
+  publisher: "SaMa Concept Store",
+
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+
+  icons: {
+    icon: "/logo.jpg",
+    shortcut: "/logo.jpg",
+    apple: "/logo.jpg",
+  },
 
   openGraph: {
-    title: "SaMa Concept Store | Handmade Glass Block Furniture",
+    title:
+      "SaMa Concept Store | Handmade Glass Block Furniture",
 
     description:
       "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები საქართველოში.",
@@ -39,85 +88,117 @@ export const metadata = {
 
     siteName: "SaMa Concept Store",
 
+    locale: "ka_GE",
+
+    type: "website",
+
     images: [
       {
         url: "https://www.samaconceptstore.ge/og-image.jpg",
+
         width: 1200,
+
         height: 630,
+
         alt: "SaMa Concept Store",
       },
     ],
-
-    locale: "ka_GE",
-    type: "website",
   },
 
   twitter: {
     card: "summary_large_image",
 
-    title: "SaMa Concept Store",
+    title:
+      "SaMa Concept Store | Handmade Glass Block Furniture",
 
     description:
       "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები საქართველოში.",
 
-    images: ["https://www.samaconceptstore.ge/og-image.jpg"],
+    images: [
+      "https://www.samaconceptstore.ge/og-image.jpg",
+    ],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  alternates: {
+    canonical:
+      "https://www.samaconceptstore.ge",
   },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ka" suppressHydrationWarning>
-
+    <html
+      lang="ka"
+      suppressHydrationWarning
+    >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        style={{
-          background:
-            "linear-gradient(to bottom, #d6e3ec, #b8cdd9, #f5f7f9)",
-          minHeight: "100vh",
-          overflowX: "hidden",
-        }}
-        
+        className={`${geistSans.variable} ${geistMono.variable} antialiased app-body`}
       >
-<script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Store",
 
-      name: "SaMa Concept Store",
+        {/* GOOGLE SEO STRUCTURED DATA */}
 
-      url: "https://www.samaconceptstore.ge",
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context":
+                "https://schema.org",
 
-      logo: "https://www.samaconceptstore.ge/og-image.jpg",
+              "@type": "Store",
 
-      image: "https://www.samaconceptstore.ge/og-image.jpg",
+              name:
+                "SaMa Concept Store",
 
-      description:
-        "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები საქართველოში.",
+              url:
+                "https://www.samaconceptstore.ge",
 
-      address: {
-        "@type": "PostalAddress",
-        addressCountry: "GE",
-      },
+              logo:
+                "https://www.samaconceptstore.ge/logo.jpg",
 
-      sameAs: [
-        "https://www.instagram.com/sama.conceptstore?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-      ],
-    }),
-  }}
-/>
+              image:
+                "https://www.samaconceptstore.ge/og-image.jpg",
+
+              description:
+                "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები საქართველოში.",
+
+              address: {
+                "@type":
+                  "PostalAddress",
+
+                addressCountry:
+                  "GE",
+              },
+
+              sameAs: [
+                "https://www.instagram.com/sama.conceptstore",
+              ],
+            }),
+          }}
+        />
+
         <CartProvider>
 
           <Navbar />
 
-          <main className="pt-10 min-h-screen">
+          <main className="pt-10 min-h-screen page-transition">
 
-          <PageTransition>
+            <PageTransition>
 
-          {children}
+              {children}
 
-          </PageTransition>
+            </PageTransition>
 
           </main>
 
@@ -130,7 +211,6 @@ export default function RootLayout({ children }) {
         <SpeedInsights />
 
       </body>
-
     </html>
   );
 }

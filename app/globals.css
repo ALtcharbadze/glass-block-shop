@@ -226,3 +226,130 @@ img {
     padding-right: 14px;
   }
 }
+
+/* =========================
+   MOBILE / ANDROID FIXES
+========================= */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  overscroll-behavior-x: none;
+  overscroll-behavior-y: smooth;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  text-rendering: optimizeLegibility;
+
+  min-height: 100dvh;
+}
+
+/* FIX MOBILE HEIGHT */
+
+main {
+  min-height: 100dvh;
+}
+
+/* FIX SAFARI / ANDROID INPUT ZOOM */
+
+input,
+textarea,
+select {
+  font-size: 16px;
+}
+
+/* BETTER TOUCH */
+
+button,
+a,
+img {
+  touch-action: manipulation;
+}
+
+/* SMOOTH SCROLL MOBILE */
+
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* SAFE AREAS */
+
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.safe-left {
+  padding-left: env(safe-area-inset-left);
+}
+
+.safe-right {
+  padding-right: env(safe-area-inset-right);
+}
+
+/* MOBILE IMAGE FIX */
+
+img {
+  image-rendering: auto;
+}
+
+/* REMOVE BLUE TAP FLASH */
+
+button,
+a,
+div,
+img {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* FIX HORIZONTAL SHAKE */
+
+body,
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* IMPROVE ANIMATIONS */
+
+.smooth-transition {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* MOBILE NAVBAR BLUR PERFORMANCE */
+
+.glass-effect {
+  transform: translateZ(0);
+  will-change: backdrop-filter;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* SELECTION */
+
+::selection {
+  background: rgba(0,0,0,0.15);
+  color: black;
+}

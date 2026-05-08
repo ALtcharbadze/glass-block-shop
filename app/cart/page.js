@@ -1,122 +1,250 @@
 'use client'
+
 import Link from 'next/link'
 import { useCart } from '../context/CartContext'
 
 export default function CartPage() {
-  const { cart, removeFromCart, clearCart, totalItems, totalPrice } = useCart()
+
+  const {
+    cart,
+    removeFromCart,
+    clearCart,
+    totalItems,
+    totalPrice,
+  } = useCart()
 
   return (
-    <main className="min-h-screen bg-[#d6e3ec] flex flex-col">
 
-      <div className="max-w-5xl mx-auto px-8 pt-28 pb-16">
-        <h2 className="text-3xl font-bold text-gray-900 mb-2">
-          თქვენი კალათა
-        </h2>
-        <p className="text-gray-500 mb-10">
-          {totalItems} პროდუქტი
-        </p>
+    <main className="min-h-screen pt-24 md:pt-32 pb-20">
+
+      <div className="page-container">
+
+        {/* HEADER */}
+
+        <div className="mb-12">
+
+          <h1 className="section-title mb-3">
+
+            თქვენი კალათა
+
+          </h1>
+
+          <p className="section-subtitle">
+
+            {totalItems} პროდუქტი
+
+          </p>
+
+        </div>
+
+        {/* EMPTY */}
 
         {cart.length === 0 ? (
-          <div className="text-center py-24">
-            <div className="text-5xl mb-4">🛒</div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">კალათა ცარიელია</h3>
-            <p className="text-gray-500 mb-6">
+
+          <div className="card-box card-padding text-center py-20 md:py-28">
+
+            <div className="text-6xl mb-6">
+
+              🛒
+
+            </div>
+
+            <h2 className="text-2xl md:text-3xl font-bold text-black mb-4">
+
+              კალათა ცარიელია
+
+            </h2>
+
+            <p className="text-gray-500 mb-8 text-base md:text-lg">
+
               დაამატეთ პროდუქტები კოლექციიდან
+
             </p>
 
             <Link href="/shop">
-              <button className="bg-black text-white px-6 py-3 hover:bg-gray-800 transition">
+
+              <button className="button-primary rounded-2xl px-8 py-4 text-base md:text-lg">
+
                 კოლექციაზე გადასვლა
+
               </button>
+
             </Link>
+
           </div>
+
         ) : (
-          <div className="grid md:grid-cols-2 gap-10">
 
-            {/* LEFT - ITEMS */}
-            <div className="space-y-6">
-              {cart.map(item => (
-                <div
-                  key={item.id}
-                  className="flex gap-4 items-center border-b border-gray-200 pb-4"
-                >
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-20 h-20 object-cover bg-gray-100"
-                  />
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 md:gap-14 items-start">
 
-                  <div className="flex-1">
-                    <p className="font-semibold text-gray-900">
-                      {item.name}
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      {item.price} ლარი × {item.qty}
-                    </p>
+            {/* LEFT SIDE */}
 
-                    <button
-                      onClick={() => removeFromCart(item.id)}
-                      className="text-red-500 text-sm mt-1 hover:underline"
-                    >
-                      წაშლა
-                    </button>
+            <div className="card-box card-padding">
+
+              <div className="space-y-6">
+
+                {cart.map((item, index) => (
+
+                  <div
+                    key={`${item.id}-${index}`}
+                    className="flex gap-4 md:gap-6 items-center border-b border-gray-100 pb-6"
+                  >
+
+                    {/* IMAGE */}
+
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-24 h-24 md:w-32 md:h-32 object-cover rounded-2xl bg-gray-100"
+                    />
+
+                    {/* INFO */}
+
+                    <div className="flex-1 min-w-0">
+
+                      <h3 className="font-semibold text-black text-base md:text-lg leading-snug mb-2">
+
+                        {item.name}
+
+                      </h3>
+
+                      <p className="text-sm md:text-base text-gray-500 mb-3">
+
+                        {item.price.toFixed(2)} ლარი × {item.qty}
+
+                      </p>
+
+                      <button
+                        onClick={() => removeFromCart(item.id, index)}
+                        className="text-red-500 text-sm smooth-transition hover:opacity-60"
+                      >
+
+                        წაშლა
+
+                      </button>
+
+                    </div>
+
+                    {/* PRICE */}
+
+                    <div className="text-right">
+
+                      <p className="font-bold text-black text-base md:text-lg whitespace-nowrap">
+
+                        {(item.price * item.qty).toFixed(2)} ლარი
+
+                      </p>
+
+                    </div>
+
                   </div>
 
-                  <p className="font-bold text-gray-900">
-                    {(item.price * item.qty).toFixed(2)} ლარი
-                  </p>
-                </div>
-              ))}
+                ))}
+
+              </div>
+
+              {/* CLEAR */}
 
               <button
                 onClick={clearCart}
-                className="border border-gray-300 px-4 py-2 text-sm text-gray-600 hover:border-black hover:text-black transition"
+                className="mt-8 border border-gray-300 rounded-xl px-5 py-3 text-sm text-gray-600 smooth-transition hover:border-black hover:text-black"
               >
+
                 კალათის გასუფთავება
+
               </button>
+
             </div>
 
-            {/* RIGHT - SUMMARY */}
-            <div className="bg-gray-50 p-6 rounded-sm shadow-sm">
-              <h3 className="font-bold text-lg mb-6 text-gray-900">
+            {/* RIGHT SIDE */}
+
+            <div className="card-box card-padding sticky top-28">
+
+              <h2 className="text-2xl font-bold text-black mb-8">
+
                 შეკვეთის დეტალები
-              </h3>
 
-              <div className="space-y-3 mb-6">
-                {cart.map(item => (
-                  <div key={item.id} className="flex justify-between text-sm">
-                    <span className="text-gray-600">
+              </h2>
+
+              {/* PRODUCTS */}
+
+              <div className="space-y-4 mb-8">
+
+                {cart.map((item, index) => (
+
+                  <div
+                    key={`${item.id}-${index}`}
+                    className="flex justify-between gap-4 text-sm md:text-base"
+                  >
+
+                    <span className="text-gray-600 leading-relaxed">
+
                       {item.name} × {item.qty}
+
                     </span>
-                    <span className="text-gray-900">
-                      {(item.price.toFixed(2) * item.qty).toFixed(2)} ლარი
+
+                    <span className="text-black font-medium whitespace-nowrap">
+
+                      {(item.price * item.qty).toFixed(2)} ლარი
+
                     </span>
+
                   </div>
+
                 ))}
+
               </div>
 
-              <div className="flex justify-between border-t pt-4 mb-6">
-                <span className="font-semibold text-gray-900">სულ</span>
-                <span className="font-bold text-xl text-black">
-                  {totalPrice.toFixed(2)} ლარი
+              {/* TOTAL */}
+
+              <div className="flex justify-between items-center border-t border-gray-200 pt-6 mb-8">
+
+                <span className="text-lg md:text-xl font-semibold text-black">
+
+                  სულ
+
                 </span>
+
+                <span className="text-2xl md:text-3xl font-bold text-black">
+
+                  {totalPrice.toFixed(2)} ლარი
+
+                </span>
+
               </div>
 
-              <Link href="/checkout">
-            <button className="w-full bg-black text-white py-4 hover:bg-gray-800 transition">
-             შეკვეთის გაფორმება
-            </button>
-              </Link>
+              {/* BUTTONS */}
 
-              <Link href="/shop">
-                <button className="w-full mt-3 border border-gray-300 py-3 text-gray-700 hover:border-black hover:text-black transition">
-                  შოპინგის გაგრძელება
-                </button>
-              </Link>
+              <div className="space-y-4">
+
+                <Link href="/checkout">
+
+                  <button className="button-primary rounded-2xl w-full py-4 text-base md:text-lg">
+
+                    შეკვეთის გაფორმება
+
+                  </button>
+
+                </Link>
+
+                <Link href="/shop">
+
+                  <button className="w-full border border-gray-300 rounded-2xl py-4 text-gray-700 smooth-transition hover:border-black hover:text-black">
+
+                    შოპინგის გაგრძელება
+
+                  </button>
+
+                </Link>
+
+              </div>
+
             </div>
 
           </div>
+
         )}
+
       </div>
 
     </main>

@@ -6,7 +6,7 @@ export default function Home() {
       
 
       {/* Hero Section */}
-      <section className="px-4 md:px-8 py-16 md:py-24 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+      <section className="page-container section-spacing grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
         <div>
           <p className="text-sm uppercase tracking-widest text-gray-600 mb-4">
           Handcrafted in Georgia
@@ -28,24 +28,24 @@ export default function Home() {
           </Link>
         </div>
     <div className="grid grid-cols-2 gap-4">
-  <div className="h-64 overflow-hidden rounded-sm bg-gray-100">
-    <img src="/table1.jpg" alt="Glass block table" className="w-full h-full object-cover hover:scale-105 transition duration-300" />
+  <div className="h-52 md:h-64 overflow-hidden rounded-2xl bg-gray-100 shadow-sm">
+    <img src="/table1.jpg" alt="Glass block table" className="w-full h-full object-cover image-hover" />
   </div>
-  <div className="h-64 overflow-hidden rounded-sm bg-gray-100">
-    <img src="/table2.jpg" alt="Glass block pedestal" className="w-full h-full object-cover hover:scale-105 transition duration-300" />
+  <div className="h-64 overflow-hidden rounded-2xl bg-gray-100 shadow-sm">
+    <img src="/table2.jpg" alt="Glass block pedestal" className="w-full h-full object-cover image-hover" />
   </div>
-  <div className="h-64 overflow-hidden rounded-sm bg-gray-100">
-    <img src="/table3.jpg" alt="Glass block pedestal lit" className="w-full h-full object-cover hover:scale-105 transition duration-300" />
+  <div className="h-64 overflow-hidden rounded-2xl bg-gray-100 shadow-sm">
+    <img src="/table3.jpg" alt="Glass block pedestal lit" className="w-full h-full object-cover image-hover" />
   </div>
-  <div className="h-64 overflow-hidden rounded-sm bg-gray-100">
-    <img src="/table4.jpg" alt="Glass block chair" className="w-full h-full object-cover hover:scale-105 transition duration-300" />
+  <div className="h-64 overflow-hidden rounded-2xl bg-gray-100 shadow-sm">
+    <img src="/table4.jpg" alt="Glass block chair" className="w-full h-full object-cover image-hover" />
   </div>
 </div>
       </section>
 
       {/* Featured Categories */}
-      <section className="bg-gray-50 px-8 py-20">
-        <div className="max-w-6xl mx-auto">
+      <section className="bg-gray-50 section-spacing">
+        <div className="page-container">
           <h3 className="text-2xl font-italic text-gray-900 mb-12 text-center">ჩვენი კოლექცია</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center place-items-center">
             {[
@@ -55,16 +55,16 @@ export default function Home() {
   <Link
   href="/shop"
   key={item.title}
-  className="bg-white rounded-sm shadow-sm hover:shadow-md transition overflow-hidden block"
+  className="card-box hover-lift soft-shadow overflow-hidden block"
 >
-    <div className="h-[260px] overflow-hidden">
+    <div className="h-[220px] md:h-[260px] overflow-hidden">
       <img
         src={item.image}
         alt={item.title}
-        className="w-full h-full object-cover object-center hover:scale-105 transition duration-300"
+        className="w-full h-full object-cover object-center image-hover"
       />
     </div>
-    <div className="p-8">
+    <div className="card-padding">
       <h4 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h4>
       <p className="text-gray-500 text-sm">{item.desc}</p>
     </div>
@@ -75,7 +75,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white px-8 py-12 text-center text-sm text-gray-400 border-t border-gray-100">
+      <footer className="bg-white py-10 text-center text-sm text-gray-400 border-t border-gray-100">
         © 2026 SaMa Studio. All rights reserved.
       </footer>
     </main>

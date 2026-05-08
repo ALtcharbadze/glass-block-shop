@@ -72,9 +72,9 @@ export default function Shop() {
           {filtered.map((product) => (
 
             <Link
-              href={`/product/${product.id}`}
-              key={product.id}
-              className="border border-gray-200 overflow-hidden block hover:shadow-xl transition bg-white"
+            href={`/product/${product.id}`}
+            key={product.id}
+            className="card-box hover-lift soft-shadow overflow-hidden block"
             >
 
               {/* IMAGE */}
@@ -82,7 +82,7 @@ export default function Shop() {
                 <img
                   src={product.images ? product.images[0] : product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover hover:scale-105 transition duration-300"
+                  className="w-full h-full object-cover image-hover"
                 />
               </div>
 
@@ -111,11 +111,11 @@ export default function Shop() {
                     e.preventDefault();
                     handleAdd(product);
                   }}
-                  className={`w-full py-3 text-sm transition ${
-                    added === product.id
-                      ? 'bg-green-600 text-white'
-                      : 'bg-black text-white hover:bg-gray-800'
-                  }`}
+                className={`button-primary rounded-xl w-full py-3 text-sm ${
+  added === product.id
+    ? 'bg-green-600 text-white'
+    : ''
+}`}
                 >
                   {added === product.id
                     ? '✓ დამატებულია'

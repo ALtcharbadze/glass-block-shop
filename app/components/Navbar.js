@@ -18,9 +18,9 @@ export default function Navbar() {
 
   return (
 
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-2xl border-b border-white/20 shadow-sm">
 
-      <div className="px-4 md:px-8 py-4 flex justify-between items-center">
+      <div className="page-container h-20 flex justify-between items-center">
 
         {/* LOGO */}
         <Link
@@ -33,15 +33,35 @@ export default function Navbar() {
         {/* DESKTOP MENU */}
         <div className="hidden md:flex items-center gap-10 text-base text-gray-900">
 
-          <Link href="/">მთავარი</Link>
+          <Link
+  href="/"
+  className="smooth-transition hover:opacity-60"
+>
+  მთავარი
+</Link>
 
-          <Link href="/shop">კოლექცია</Link>
+          <Link
+            href="/shop"
+            className="smooth-transition hover:opacity-60"
+          >
+            კოლექცია
+          </Link>
 
-          <Link href="/about">ჩვენ შესახებ</Link>
+          <Link
+            href="/about"
+            className="smooth-transition hover:opacity-60"
+          >
+            ჩვენ შესახებ
+          </Link>
 
-          <Link href="/contact">დაგვიკავშირდი</Link>
+          <Link
+            href="/contact"
+            className="smooth-transition hover:opacity-60"
+          >
+            დაგვიკავშირდი
+          </Link>
 
-          <Link href="/cart" className="relative">
+          <Link href="/cart" className="relative smooth-transition hover:scale-110">
 
             🛒
 
@@ -58,7 +78,7 @@ export default function Navbar() {
         {/* MOBILE BUTTON */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-3xl"
+          className="md:hidden text-3xl p-2 rounded-xl smooth-transition hover:bg-black/5"
         >
           ☰
         </button>
@@ -68,7 +88,7 @@ export default function Navbar() {
       {/* MOBILE MENU */}
       {menuOpen && (
 
-        <div className="md:hidden flex flex-col gap-6 px-6 py-6 bg-white border-t border-gray-200 text-lg">
+        <div className="md:hidden flex flex-col gap-6 px-6 py-6 bg-white/95 backdrop-blur-2xl border-t border-gray-200 text-lg animate-fadeIn">
 
           <Link
             href="/"
@@ -101,7 +121,7 @@ export default function Navbar() {
           <Link
             href="/cart"
             onClick={() => setMenuOpen(false)}
-            className="relative w-fit"
+            className="relative w-fit smooth-transition hover:scale-110"
           >
 
             🛒 კალათა

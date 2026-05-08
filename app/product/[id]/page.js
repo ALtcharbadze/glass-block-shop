@@ -2,15 +2,10 @@
 
 import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
+import Image from 'next/image'
+
 import products from '@/app/data/products'
 import { useCart } from '@/app/context/CartContext'
-
-import {
-  Truck,
-  ShieldCheck,
-  Sparkles,
-  Hammer,
-} from 'lucide-react'
 
 export default function ProductPage() {
 
@@ -22,16 +17,7 @@ export default function ProductPage() {
 
   const { addToCart } = useCart()
 
-  // FIXED
   const [selectedImage, setSelectedImage] = useState(null)
-
-  useEffect(() => {
-    if (product) {
-      setSelectedImage(
-        product.images?.[0] || product.image
-      )
-    }
-  }, [product])
 
   const [fullscreen, setFullscreen] = useState(false)
 
@@ -40,15 +26,38 @@ export default function ProductPage() {
 
   const [added, setAdded] = useState(false)
 
+  // SET DEFAULT IMAGE
+
+  useEffect(() => {
+
+    if (product) {
+
+      setSelectedImage(
+        product.images?.[0] || product.image
+      )
+    }
+
+  }, [product])
+
+  // PRODUCT NOT FOUND
+
   if (!product) {
+
     return (
+
       <main className="min-h-screen flex items-center justify-center">
+
         <h1 className="text-3xl font-bold">
+
           Product not found
+
         </h1>
+
       </main>
     )
   }
+
+  // IMAGES
 
   const currentImages = product.images
     ? product.images
@@ -57,6 +66,8 @@ export default function ProductPage() {
   const currentIndex =
     currentImages.indexOf(selectedImage)
 
+  // NEXT IMAGE
+
   const nextImage = () => {
 
     const next =
@@ -64,6 +75,8 @@ export default function ProductPage() {
 
     setSelectedImage(currentImages[next])
   }
+
+  // PREVIOUS IMAGE
 
   const prevImage = () => {
 
@@ -74,32 +87,38 @@ export default function ProductPage() {
     setSelectedImage(currentImages[prev])
   }
 
-  // TOUCH SWIPE
+  // TOUCH START
 
   const handleTouchStart = ({ targetTouches }) => {
+
     setTouchStartX(targetTouches[0].clientX)
   }
 
+  // TOUCH MOVE
+
   const handleTouchMove = ({ targetTouches }) => {
+
     setTouchEndX(targetTouches[0].clientX)
   }
+
+  // TOUCH END
 
   const handleTouchEnd = () => {
 
     const distance = touchStartX - touchEndX
 
-    // SWIPE LEFT
     if (distance > 50) {
+
       nextImage()
     }
 
-    // SWIPE RIGHT
     if (distance < -50) {
+
       prevImage()
     }
   }
 
-  // KEYBOARD ARROWS
+  // KEYBOARD CONTROLS
 
   useEffect(() => {
 
@@ -108,14 +127,17 @@ export default function ProductPage() {
       if (!fullscreen) return
 
       if (e.key === 'ArrowRight') {
+
         nextImage()
       }
 
       if (e.key === 'ArrowLeft') {
+
         prevImage()
       }
 
       if (e.key === 'Escape') {
+
         setFullscreen(false)
       }
     }
@@ -126,6 +148,7 @@ export default function ProductPage() {
     )
 
     return () => {
+
       window.removeEventListener(
         'keydown',
         handleKeyDown
@@ -136,25 +159,36 @@ export default function ProductPage() {
 
   return (
 
-    <main className="min-h-screen pt-24 md:pt-32 px-4 md:px-8 pb-16">
+    <main className="min-h-screen pt-24 md:pt-32 pb-20">
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16">
+      <div className="page-container grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 items-start">
 
-        {/* IMAGE SECTION */}
+        {/* LEFT SIDE */}
 
         <div>
 
           {/* MAIN IMAGE */}
 
-          <div className="bg-white overflow-hidden border border-gray-200">
+          <div className="card-box overflow-hidden">
 
             {selectedImage && (
-              <img
-                src={selectedImage}
-                alt={product.name}
+
+              <div
                 onClick={() => setFullscreen(true)}
-                className="w-full h-[400px] md:h-[700px] object-cover cursor-pointer"
-              />
+                className="relative w-full aspect-square overflow-hidden cursor-pointer"
+              >
+
+                <Image
+                  src={selectedImage}
+                  alt={product.name}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover smooth-transition hover:scale-[1.02]"
+                />
+
+              </div>
+
             )}
 
           </div>
@@ -163,25 +197,31 @@ export default function ProductPage() {
 
           {product.images && (
 
-            <div className="flex gap-3 md:gap-4 mt-4 flex-wrap">
+            <div className="flex gap-3 md:gap-4 mt-5 flex-wrap">
 
               {product.images.map((img) => (
 
                 <button
                   key={img}
                   onClick={() => setSelectedImage(img)}
-                  className={`border-2 transition ${
+                  className={`relative overflow-hidden rounded-2xl border-2 smooth-transition ${
                     selectedImage === img
                       ? 'border-black'
-                      : 'border-transparent'
+                      : 'border-transparent hover:border-gray-300'
                   }`}
                 >
 
-                  <img
-                    src={img}
-                    alt=""
-                    className="w-20 h-20 md:w-24 md:h-24 object-cover cursor-pointer"
-                  />
+                  <div className="relative w-20 h-20 md:w-24 md:h-24">
+
+                    <Image
+                      src={img}
+                      alt={product.name}
+                      fill
+                      sizes="120px"
+                      className="object-cover smooth-transition hover:opacity-70"
+                    />
+
+                  </div>
 
                 </button>
 
@@ -193,35 +233,43 @@ export default function ProductPage() {
 
         </div>
 
-        {/* INFO SECTION */}
+        {/* RIGHT SIDE */}
 
         <div>
 
-          <p className="text-sm uppercase tracking-widest text-gray-500 mb-4">
+          {/* BRAND */}
+
+          <p className="text-sm uppercase tracking-[0.25em] text-gray-500 mb-4">
 
             SaMa Concept Store
 
           </p>
 
-          <h1 className="text-3xl md:text-5xl font-bold text-black mb-6 leading-tight">
+          {/* TITLE */}
+
+          <h1 className="text-4xl md:text-6xl font-bold text-black mb-6 leading-[1.05]">
 
             {product.name}
 
           </h1>
 
-          <p className="text-2xl md:text-3xl font-semibold text-black mb-8">
+          {/* PRICE */}
+
+          <p className="text-3xl md:text-4xl font-semibold text-black mb-8">
 
             {product.price.toFixed(2)} ლარი
 
           </p>
 
-          <p className="text-gray-700 leading-relaxed text-base md:text-lg mb-10">
+          {/* DESCRIPTION */}
+
+          <p className="text-gray-700 leading-relaxed text-lg md:text-xl mb-12">
 
             {product.description}
 
           </p>
 
-          {/* ADD TO CART */}
+          {/* BUTTON */}
 
           <button
             onClick={() => {
@@ -236,13 +284,15 @@ export default function ProductPage() {
               setAdded(true)
 
               setTimeout(() => {
+
                 setAdded(false)
+
               }, 2000)
             }}
-            className={`px-6 md:px-10 py-3 md:py-4 transition text-white ${
+            className={`button-primary rounded-2xl px-8 md:px-12 py-4 md:py-5 text-base md:text-lg ${
               added
                 ? 'bg-green-600'
-                : 'bg-black hover:bg-gray-800'
+                : ''
             }`}
           >
 
@@ -254,25 +304,29 @@ export default function ProductPage() {
 
           {/* DETAILS */}
 
-          <div className="mt-16 border-t border-gray-300 pt-8">
+          <div className="mt-16 pt-10 border-t border-gray-200">
 
-            <h3 className="text-2xl font-bold text-black mb-6">
+            <h3 className="text-2xl font-bold text-black mb-8">
 
               დეტალები
 
             </h3>
 
-            <div className="space-y-5 text-gray-700">
+            <div className="space-y-5 text-gray-700 text-base md:text-lg">
 
               {product.details.map((detail, index) => (
 
                 <div
                   key={index}
-                  className="flex items-center gap-4"
+                  className="flex items-start gap-4"
                 >
 
-                  <p>
+                  <div className="w-2 h-2 rounded-full bg-black mt-3 shrink-0" />
+
+                  <p className="leading-relaxed">
+
                     {detail}
+
                   </p>
 
                 </div>
@@ -287,58 +341,77 @@ export default function ProductPage() {
 
       </div>
 
-      {/* FULLSCREEN GALLERY */}
+      {/* FULLSCREEN */}
 
       {fullscreen && selectedImage && (
 
         <div
           onClick={() => setFullscreen(false)}
-          className="fixed inset-0 bg-black/95 z-[999] flex items-center justify-center"
+          className="fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center"
         >
 
           {/* CLOSE */}
 
           <button
             onClick={() => setFullscreen(false)}
-            className="absolute top-4 md:top-6 right-5 md:right-8 text-white text-4xl md:text-5xl"
+            className="absolute top-4 md:top-6 right-5 md:right-8 text-white text-4xl md:text-5xl z-50"
           >
+
             ×
+
           </button>
 
           {/* LEFT */}
 
           <button
             onClick={(e) => {
+
               e.stopPropagation()
+
               prevImage()
             }}
-            className="absolute left-2 md:left-6 text-white text-4xl md:text-6xl px-2 md:px-4"
+            className="absolute left-2 md:left-6 text-white text-4xl md:text-6xl px-2 md:px-4 z-50"
           >
+
             ‹
+
           </button>
 
           {/* IMAGE */}
 
-          <img
-            src={selectedImage}
-            alt=""
+          <div
             onClick={(e) => e.stopPropagation()}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
-            className="max-w-[92%] max-h-[88vh] object-contain select-none"
-          />
+            className="relative w-[92%] h-[88vh]"
+          >
+
+            <Image
+              src={selectedImage}
+              alt={product.name}
+              fill
+              priority
+              sizes="100vw"
+              className="object-contain select-none"
+            />
+
+          </div>
 
           {/* RIGHT */}
 
           <button
             onClick={(e) => {
+
               e.stopPropagation()
+
               nextImage()
             }}
-            className="absolute right-2 md:right-6 text-white text-4xl md:text-6xl px-2 md:px-4"
+            className="absolute right-2 md:right-6 text-white text-4xl md:text-6xl px-2 md:px-4 z-50"
           >
+
             ›
+
           </button>
 
         </div>
@@ -349,7 +422,7 @@ export default function ProductPage() {
 
       {added && (
 
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-black text-white px-5 md:px-6 py-3 md:py-4 rounded-xl shadow-2xl z-[9999] text-sm md:text-base whitespace-nowrap">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-black text-white px-5 md:px-6 py-3 md:py-4 rounded-2xl shadow-2xl z-[9999] text-sm md:text-base whitespace-nowrap animate-fadeIn">
 
           წარმატებით დაემატა კალათაში
 

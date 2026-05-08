@@ -12,11 +12,28 @@ export default function Home() {
           Handcrafted in Georgia
           </p>
 
-        <h2 className="text-5xl font-italic text-gray-900 leading-tight mb-6">
+        <h2 className="
+text-[3rem]
+sm:text-[4rem]
+md:text-6xl
+leading-[0.95]
+md:leading-tight
+tracking-[-0.04em]
+text-gray-900
+mb-6
+wrap-break-words
+">
         SaMa Concept Store ექსპერიმენტული ლაბორატორია, ხელნაკეთი ავეჯი
         </h2>
 
-      <p className="text-gray-700 text-lg mb-8">
+      <p className="
+text-[1rem]
+md:text-lg
+leading-[1.7]
+text-gray-700
+mb-8
+max-w-xl
+">
       SaMa არის ექსპერიმენტული ლაბორატორია, სადაც მასალები, ფორმები და იდეები მუდმივად იცვლება და ახალ მნიშვნელობას იძენს. 
       აქ იქმნება ობიექტები, რომლებიც ერთდროულად არის ფუნქციური და ხელოვნების ნიმუში,
       არა უბრალოდ ნივთი, არამედ სივრცითი ობიექტი, რომელიც გარემოს ხასიათს და ატმოსფეროს ცვლის.
@@ -57,7 +74,7 @@ export default function Home() {
   key={item.title}
   className="card-box hover-lift soft-shadow overflow-hidden block"
 >
-    <div className="h-[220px] md:h-[260px] overflow-hidden">
+    <div className="h-55 md:h-65 overflow-hidden">
       <img
         src={item.image}
         alt={item.title}

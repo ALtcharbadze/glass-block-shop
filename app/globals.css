@@ -353,3 +353,34 @@ html {
   background: rgba(0,0,0,0.15);
   color: black;
 }
+
+/* =========================
+   ANDROID FIXES
+========================= */
+
+@media (max-width: 640px) {
+
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3 {
+    word-break: break-word;
+  }
+
+  p {
+    line-height: 1.65;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+}

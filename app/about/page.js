@@ -8,25 +8,27 @@ export default function About() {
 
       {/* HERO */}
 
-      <section className="page-container section-spacing grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+      <section className="page-container section-spacing grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
         {/* LEFT */}
 
         <div>
 
-          <p className="text-sm uppercase tracking-widest text-gray-500 mb-4">
+          <p className="text-sm uppercase tracking-[0.25em] text-gray-500 mb-4">
 
             ჩვენს შესახებ
 
           </p>
 
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-[#0f172a] leading-[1.05] mb-6">
 
-            SaMa Concept Store უნიკალური ნივთები
+            SaMa Concept Store
+            <br />
+            უნიკალური ნივთები
 
           </h1>
 
-          <p className="text-gray-700 text-lg leading-relaxed mb-6">
+          <p className="text-gray-700 text-lg leading-[1.9] mb-6">
 
             ჩვენ ვმუშაობთ ხელით შექმნილ, შეზღუდული რაოდენობის
             უნიკალურ ნივთებზე. თითოეული ობიექტი არის დროის
@@ -35,7 +37,7 @@ export default function About() {
 
           </p>
 
-          <p className="text-gray-600 text-lg leading-relaxed">
+          <p className="text-gray-600 text-lg leading-[1.9]">
 
             ჩვენი კომპანია ქმნის თითოეულ ნამუშევარს როგორც
             ხელოვნების ნიმუშს, სადაც ოსტატობა და ელეგანტურობა
@@ -47,12 +49,18 @@ export default function About() {
 
         {/* RIGHT */}
 
-        <div className="overflow-hidden rounded-3xl soft-shadow bg-gray-100 h-[320px] md:h-[500px]">
+        <div className="bg-white rounded-[32px] overflow-hidden soft-shadow p-6 md:p-10">
 
           <img
             src="/logo.jpg"
-            alt="SaMa Studio"
-            className="w-full h-full object-cover"
+            alt="SaMa Concept Store"
+            className="
+              w-full
+              h-auto
+              max-h-[420px]
+              object-contain
+              mx-auto
+            "
           />
 
         </div>
@@ -65,19 +73,19 @@ export default function About() {
 
         <div className="page-container text-center">
 
-          <p className="text-sm uppercase tracking-widest text-gray-400 mb-4">
+          <p className="text-sm uppercase tracking-[0.25em] text-gray-400 mb-4">
 
             The Founders
 
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#0f172a] mb-6">
 
             Meet Salome & Mariami
 
           </h2>
 
-          <p className="text-gray-500 max-w-3xl mx-auto text-lg leading-relaxed">
+          <p className="text-gray-500 max-w-3xl mx-auto text-lg leading-[1.9]">
 
             SaMa არის ორი ადამიანის ისტორია, რომლებსაც
             აერთიანებთ სილამაზის, დეტალების და ხელნაკეთი
@@ -106,7 +114,7 @@ export default function About() {
 
               </div>
 
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+              <h3 className="text-2xl font-bold text-[#0f172a] mb-2">
 
                 სალომე
 
@@ -134,7 +142,7 @@ export default function About() {
 
               </div>
 
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+              <h3 className="text-2xl font-bold text-[#0f172a] mb-2">
 
                 მარიამი
 
@@ -158,7 +166,7 @@ export default function About() {
 
       <section className="page-container section-spacing">
 
-        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-14 text-center">
+        <h2 className="text-3xl md:text-5xl font-bold text-[#0f172a] mb-14 text-center">
 
           რაშია ჩვენი ღირებულება
 
@@ -197,13 +205,13 @@ export default function About() {
 
               </div>
 
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
+              <h3 className="text-xl font-bold text-[#0f172a] mb-4">
 
                 {item.title}
 
               </h3>
 
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-[1.8]">
 
                 {item.desc}
 
@@ -223,7 +231,7 @@ export default function About() {
 
         <div className="page-container">
 
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-14 text-center">
+          <h2 className="text-3xl md:text-5xl font-bold text-[#0f172a] mb-14 text-center">
 
             როგორ მუშაობს
 
@@ -268,13 +276,13 @@ export default function About() {
 
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-xl font-bold text-[#0f172a] mb-3">
 
                   {item.title}
 
                 </h3>
 
-                <p className="text-gray-500 leading-relaxed">
+                <p className="text-gray-500 leading-[1.8]">
 
                   {item.desc}
 
@@ -300,7 +308,7 @@ export default function About() {
 
         </h2>
 
-        <p className="text-gray-400 max-w-2xl mx-auto mb-10 text-lg">
+        <p className="text-gray-400 max-w-2xl mx-auto mb-10 text-lg leading-[1.8]">
 
           გადახედეთ ჩვენს კოლექციას ან დაგვიკავშირდით
           სასურველი დიზაინის შესაქმნელად.
@@ -311,7 +319,7 @@ export default function About() {
 
           <Link href="/shop">
 
-            <button className="bg-white text-black px-8 py-4 rounded-2xl uppercase tracking-widest hover:bg-gray-100 smooth-transition">
+            <button className="bg-white text-black px-8 py-4 rounded-2xl uppercase tracking-[0.2em] hover:bg-gray-100 smooth-transition">
 
               Shop Now
 
@@ -321,7 +329,7 @@ export default function About() {
 
           <Link href="/contact">
 
-            <button className="border border-white text-white px-8 py-4 rounded-2xl uppercase tracking-widest hover:bg-white hover:text-black smooth-transition">
+            <button className="border border-white text-white px-8 py-4 rounded-2xl uppercase tracking-[0.2em] hover:bg-white hover:text-black smooth-transition">
 
               Contact Us
 

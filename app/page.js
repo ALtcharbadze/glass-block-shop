@@ -80,7 +80,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-4">
 
-  <div className="overflow-hidden rounded-[28px] h-[240px] sm:h-[320px] soft-shadow">
+  <div className="overflow-hidden rounded-[28px] h-60 sm:h-80 soft-shadow">
     <img
       src="/table1.jpg"
       alt="Glass block table"
@@ -88,7 +88,7 @@ export default function Home() {
     />
   </div>
 
-  <div className="overflow-hidden rounded-[28px] h-[240px] sm:h-[320px] soft-shadow sm:mt-10">
+  <div className="overflow-hidden rounded-[28px] h-60 sm:h-80 soft-shadow sm:mt-10">
     <img
       src="/table2.jpg"
       alt="Glass block table"
@@ -96,7 +96,7 @@ export default function Home() {
     />
   </div>
 
-  <div className="overflow-hidden rounded-[28px] h-[240px] sm:h-[320px] soft-shadow">
+  <div className="overflow-hidden rounded-[28px] h-60 sm:h-80 soft-shadow">
     <img
       src="/table3.jpg"
       alt="Glass block table"
@@ -104,7 +104,7 @@ export default function Home() {
     />
   </div>
 
-  <div className="overflow-hidden rounded-[28px] h-[240px] sm:h-[320px] soft-shadow sm:mt-10">
+  <div className="overflow-hidden rounded-[28px] h-60-[320px] soft-shadow sm:mt-10">
     <img
       src="/table4.jpg"
       alt="Glass block table"

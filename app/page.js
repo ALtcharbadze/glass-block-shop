@@ -78,41 +78,41 @@ export default function Home() {
 
           {/* RIGHT */}
 
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-4">
 
-            <div className="overflow-hidden rounded-[28px] h-65 md:h-80 soft-shadow">
-              <img
-                src="/table1.jpg"
-                alt="Glass block table"
-                className="w-full h-full object-cover image-hover"
-              />
-            </div>
+  <div className="overflow-hidden rounded-[28px] h-[240px] sm:h-[320px] soft-shadow">
+    <img
+      src="/table1.jpg"
+      alt="Glass block table"
+      className="w-full h-full object-cover image-hover"
+    />
+  </div>
 
-            <div className="overflow-hidden rounded-[28px] h-65 md:h-80 mt-10 soft-shadow">
-              <img
-                src="/table2.jpg"
-                alt="Glass block table"
-                className="w-full h-full object-cover image-hover"
-              />
-            </div>
+  <div className="overflow-hidden rounded-[28px] h-[240px] sm:h-[320px] soft-shadow sm:mt-10">
+    <img
+      src="/table2.jpg"
+      alt="Glass block table"
+      className="w-full h-full object-cover image-hover"
+    />
+  </div>
 
-            <div className="overflow-hidden rounded-[28px] h-65 md:h-80 soft-shadow">
-              <img
-                src="/table3.jpg"
-                alt="Glass block table"
-                className="w-full h-full object-cover image-hover"
-              />
-            </div>
+  <div className="overflow-hidden rounded-[28px] h-[240px] sm:h-[320px] soft-shadow">
+    <img
+      src="/table3.jpg"
+      alt="Glass block table"
+      className="w-full h-full object-cover image-hover"
+    />
+  </div>
 
-            <div className="overflow-hidden rounded-[28px] h-65 md:h-80 mt-10 soft-shadow">
-              <img
-                src="/table4.jpg"
-                alt="Glass block table"
-                className="w-full h-full object-cover image-hover"
-              />
-            </div>
+  <div className="overflow-hidden rounded-[28px] h-[240px] sm:h-[320px] soft-shadow sm:mt-10">
+    <img
+      src="/table4.jpg"
+      alt="Glass block table"
+      className="w-full h-full object-cover image-hover"
+    />
+  </div>
 
-          </div>
+</div>
 
         </div>
 

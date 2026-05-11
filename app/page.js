@@ -5,60 +5,120 @@ export default function Home() {
     <main className="min-h-screen bg-[#cfe3ea]">
       
 
-      {/* Hero Section */}
-      <section className="page-container section-spacing grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
-        <div>
-          <p className="text-sm uppercase tracking-widest text-gray-600 mb-4">
-          Handcrafted in Georgia
-          </p>
+{/* Hero Section */}
 
-        <h2 className="
-text-[3rem]
-sm:text-[4rem]
-md:text-6xl
-leading-[0.95]
-md:leading-tight
-tracking-[-0.04em]
-text-gray-900
-mb-6
-wrap-break-words
-">
-        SaMa Concept Store ექსპერიმენტული ლაბორატორია, ხელნაკეთი ავეჯი
-        </h2>
+<section className="page-container section-spacing grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center overflow-hidden">
 
-      <p className="
-text-[1rem]
-md:text-lg
-leading-[1.7]
-text-gray-700
-mb-8
-max-w-xl
-">
-      SaMa არის ექსპერიმენტული ლაბორატორია, სადაც მასალები, ფორმები და იდეები მუდმივად იცვლება და ახალ მნიშვნელობას იძენს. 
-      აქ იქმნება ობიექტები, რომლებიც ერთდროულად არის ფუნქციური და ხელოვნების ნიმუში,
-      არა უბრალოდ ნივთი, არამედ სივრცითი ობიექტი, რომელიც გარემოს ხასიათს და ატმოსფეროს ცვლის.
-      </p>
-          <Link href="/shop">
-            <button className="bg-black text-white px-8 py-4 text-sm uppercase tracking-widest hover:bg-gray-800 transition">
-              Shop Now
-            </button>
-          </Link>
-        </div>
-    <div className="grid grid-cols-2 gap-4">
-  <div className="h-52 md:h-64 overflow-hidden rounded-2xl bg-gray-100 shadow-sm">
-    <img src="/table1.jpg" alt="Glass block table" className="w-full h-full object-cover image-hover" />
+  {/* LEFT */}
+
+  <div>
+
+    <p className="text-xs sm:text-sm uppercase tracking-[0.25em] text-gray-600 mb-4">
+      Handcrafted in Georgia
+    </p>
+
+    <h1
+      className="
+      text-[2.7rem]
+      sm:text-[3.4rem]
+      md:text-6xl
+      leading-[0.92]
+      md:leading-none
+      tracking-tighter
+      text-gray-900
+      mb-6
+      wrap-break-word
+      max-w-[12ch]
+      "
+    >
+      SaMa Concept Store ექსპერიმენტული ლაბორატორია, ხელნაკეთი ავეჯი
+    </h1>
+
+    <p
+      className="
+      text-[1rem]
+      md:text-lg
+      leading-[1.8]
+      text-gray-700
+      mb-8
+      max-w-xl
+      "
+    >
+      SaMa არის ექსპერიმენტული ლაბორატორია, სადაც მასალები,
+      ფორმები და იდეები მუდმივად იცვლება და ახალ მნიშვნელობას
+      იძენს. აქ იქმნება ობიექტები, რომლებიც ერთდროულად არის
+      ფუნქციური და ხელოვნების ნიმუში, არა უბრალოდ ნივთი,
+      არამედ სივრცითი ობიექტი, რომელიც გარემოს ხასიათს და
+      ატმოსფეროს ცვლის.
+    </p>
+
+    <Link href="/shop">
+
+      <button
+        className="
+        button-primary
+        px-8
+        py-4
+        rounded-2xl
+        text-sm
+        uppercase
+        tracking-[0.2em]
+        "
+      >
+        Shop Now
+      </button>
+
+    </Link>
+
   </div>
-  <div className="h-64 overflow-hidden rounded-2xl bg-gray-100 shadow-sm">
-    <img src="/table2.jpg" alt="Glass block pedestal" className="w-full h-full object-cover image-hover" />
+
+  {/* RIGHT */}
+
+  <div
+    className="
+    grid
+    grid-cols-1
+    sm:grid-cols-2
+    gap-4
+    mt-2
+    "
+  >
+
+    <div className="h-60 sm:h-64 overflow-hidden rounded-3xl bg-gray-100 soft-shadow">
+      <img
+        src="/table1.jpg"
+        alt="Glass block table"
+        className="w-full h-full object-cover image-hover"
+      />
+    </div>
+
+    <div className="h-60 sm:h-64 overflow-hidden rounded-3xl bg-gray-100 soft-shadow">
+      <img
+        src="/table2.jpg"
+        alt="Glass block pedestal"
+        className="w-full h-full object-cover image-hover"
+      />
+    </div>
+
+    <div className="h-60 sm:h-64 overflow-hidden rounded-3xl bg-gray-100 soft-shadow">
+      <img
+        src="/table3.jpg"
+        alt="Glass block pedestal lit"
+        className="w-full h-full object-cover image-hover"
+      />
+    </div>
+
+    <div className="h-60 sm:h-64 overflow-hidden rounded-3xl bg-gray-100 soft-shadow">
+      <img
+        src="/table4.jpg"
+        alt="Glass block chair"
+        className="w-full h-full object-cover image-hover"
+      />
+    </div>
+
   </div>
-  <div className="h-64 overflow-hidden rounded-2xl bg-gray-100 shadow-sm">
-    <img src="/table3.jpg" alt="Glass block pedestal lit" className="w-full h-full object-cover image-hover" />
-  </div>
-  <div className="h-64 overflow-hidden rounded-2xl bg-gray-100 shadow-sm">
-    <img src="/table4.jpg" alt="Glass block chair" className="w-full h-full object-cover image-hover" />
-  </div>
-</div>
-      </section>
+
+</section>
 
       {/* Featured Categories */}
       <section className="bg-gray-50 section-spacing">

@@ -49,7 +49,7 @@ export default function About() {
 
         {/* RIGHT */}
 
-        <div className="bg-white rounded-[32px] overflow-hidden soft-shadow p-6 md:p-10">
+        <div className="bg-white rounded-4xl overflow-hidden soft-shadow p-6 md:p-10">
 
           <img
             src="/logo.jpg"
@@ -57,7 +57,7 @@ export default function About() {
             className="
               w-full
               h-auto
-              max-h-[420px]
+              max-h-105
               object-contain
               mx-auto
             "

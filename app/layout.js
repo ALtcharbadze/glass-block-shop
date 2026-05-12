@@ -4,6 +4,7 @@ import "./globals.css";
 import { CartProvider } from "./context/CartContext";
 import Navbar from "./components/Navbar";
 import FloatingInstagram from "./components/FloatingInstagram";
+import FloatingPhone from "./components/FloatingPhone";
 import PageTransition from "./components/PageTransition";
 
 import { Analytics } from "@vercel/analytics/react";
@@ -256,6 +257,8 @@ export default function RootLayout({
           </main>
 
           <FloatingInstagram />
+
+          <FloatingPhone />
 
         </CartProvider>
 

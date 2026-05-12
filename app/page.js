@@ -69,7 +69,7 @@ export default function Home() {
                 tracking-[0.22em]
                 "
               >
-                Shop Now
+                იხილეთ კოლექცია
               </button>
 
             </Link>
@@ -140,13 +140,13 @@ export default function Home() {
 
             {[
               {
-                title: 'Coffee Tables',
+                title: 'ყავის მაგიდები',
                 desc: 'შუშის ბლოკებისგან შექმნილი ელეგანტური ყავის მაგიდები, რომლებიც ინტერიერს განსხვავებულ ხასიათს სძენს.',
                 image: '/table5.jpg',
               },
 
               {
-                title: 'Pedestals & Stands',
+                title: 'პედესტალები და სტენდები',
                 desc: 'დეკორისა და მცენარეებისთვის შექმნილი უნიკალური სადგამები ინტეგრირებული განათებით.',
                 image: '/padestal4.jpg',
               },

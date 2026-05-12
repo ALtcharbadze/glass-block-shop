@@ -26,7 +26,7 @@ export default function ProductPage() {
 
   const [added, setAdded] = useState(false)
 
-  // SET DEFAULT IMAGE
+  // DEFAULT IMAGE
 
   useEffect(() => {
 
@@ -39,7 +39,7 @@ export default function ProductPage() {
 
   }, [product])
 
-  // PRODUCT NOT FOUND
+  // NOT FOUND
 
   if (!product) {
 
@@ -81,15 +81,19 @@ export default function ProductPage() {
   const prevImage = () => {
 
     const prev =
-      (currentIndex - 1 + currentImages.length) %
-      currentImages.length
+      (
+        currentIndex - 1 +
+        currentImages.length
+      ) % currentImages.length
 
     setSelectedImage(currentImages[prev])
   }
 
   // TOUCH START
 
-  const handleTouchStart = ({ targetTouches }) => {
+  const handleTouchStart = ({
+    targetTouches
+  }) => {
 
     // PINCH ZOOM
     if (targetTouches.length > 1) {
@@ -111,7 +115,9 @@ export default function ProductPage() {
 
   // TOUCH MOVE
 
-  const handleTouchMove = ({ targetTouches }) => {
+  const handleTouchMove = ({
+    targetTouches
+  }) => {
 
     // PINCH ZOOM
     if (targetTouches.length > 1) {
@@ -131,7 +137,7 @@ export default function ProductPage() {
 
   const handleTouchEnd = () => {
 
-    // INVALID SWIPE
+    // INVALID
     if (
       touchStartX === 0 ||
       touchEndX === 0
@@ -168,7 +174,7 @@ export default function ProductPage() {
     setTouchEndX(0)
   }
 
-  // KEYBOARD CONTROLS
+  // KEYBOARD
 
   useEffect(() => {
 
@@ -213,7 +219,7 @@ export default function ProductPage() {
 
       <div className="page-container grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 items-start">
 
-        {/* LEFT SIDE */}
+        {/* LEFT */}
 
         <div>
 
@@ -283,11 +289,9 @@ export default function ProductPage() {
 
         </div>
 
-        {/* RIGHT SIDE */}
+        {/* RIGHT */}
 
         <div>
-
-          {/* BRAND */}
 
           <p className="text-sm uppercase tracking-[0.25em] text-gray-500 mb-4">
 
@@ -295,23 +299,17 @@ export default function ProductPage() {
 
           </p>
 
-          {/* TITLE */}
-
           <h1 className="text-4xl md:text-6xl font-bold text-black mb-6 leading-[1.05]">
 
             {product.name}
 
           </h1>
 
-          {/* PRICE */}
-
           <p className="text-3xl md:text-4xl font-semibold text-black mb-8">
 
             {product.price.toFixed(2)} ლარი
 
           </p>
-
-          {/* DESCRIPTION */}
 
           <p className="text-gray-700 leading-relaxed text-lg md:text-xl mb-12">
 
@@ -395,17 +393,10 @@ export default function ProductPage() {
 
       {fullscreen && selectedImage && (
 
-       <div
-  onClick={(e) => {
-
-    // CLOSE ONLY OUTSIDE IMAGE
-
-    if (e.target === e.currentTarget) {
-      setFullscreen(false)
-    }
-  }}
-  className="fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center"
->
+        <div
+          onClick={() => setFullscreen(false)}
+          className="fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center"
+        >
 
           {/* CLOSE */}
 
@@ -437,7 +428,6 @@ export default function ProductPage() {
           {/* IMAGE */}
 
           <div
-            onClick={(e) => e.stopPropagation()}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}

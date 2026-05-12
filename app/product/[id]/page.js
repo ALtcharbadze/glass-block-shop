@@ -91,10 +91,20 @@ export default function ProductPage() {
 
   const handleTouchStart = ({ targetTouches }) => {
 
-    // IGNORE PINCH ZOOM
-    if (targetTouches.length > 1) return
+    // PINCH ZOOM
+    if (targetTouches.length > 1) {
+
+      setTouchStartX(0)
+      setTouchEndX(0)
+
+      return
+    }
 
     setTouchStartX(
+      targetTouches[0].clientX
+    )
+
+    setTouchEndX(
       targetTouches[0].clientX
     )
   }
@@ -103,8 +113,14 @@ export default function ProductPage() {
 
   const handleTouchMove = ({ targetTouches }) => {
 
-    // IGNORE PINCH ZOOM
-    if (targetTouches.length > 1) return
+    // PINCH ZOOM
+    if (targetTouches.length > 1) {
+
+      setTouchStartX(0)
+      setTouchEndX(0)
+
+      return
+    }
 
     setTouchEndX(
       targetTouches[0].clientX
@@ -115,7 +131,7 @@ export default function ProductPage() {
 
   const handleTouchEnd = () => {
 
-    // NO SWIPE
+    // INVALID SWIPE
     if (
       touchStartX === 0 ||
       touchEndX === 0
@@ -126,14 +142,23 @@ export default function ProductPage() {
     const distance =
       touchStartX - touchEndX
 
-    // SWIPE LEFT
-    if (distance > 50) {
+    // TOO SMALL
+    if (Math.abs(distance) < 60) {
+
+      setTouchStartX(0)
+      setTouchEndX(0)
+
+      return
+    }
+
+    // LEFT
+    if (distance > 0) {
 
       nextImage()
     }
 
-    // SWIPE RIGHT
-    if (distance < -50) {
+    // RIGHT
+    if (distance < 0) {
 
       prevImage()
     }

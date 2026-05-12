@@ -10,28 +10,40 @@ export default function FloatingInstagram() {
       href="https://instagram.com/sama.conceptstore"
       target="_blank"
       rel="noopener noreferrer"
-className="
-  fixed
-  bottom-5
-  right-5
-  z-[999]
-w-12 h-12 md:w-14 md:h-14
-  rounded-full
-  text-white
-  flex
-  items-center
-  justify-center
-  shadow-2xl
-  hover:scale-110
-  transition
-  bg-gradient-to-tr
-  from-yellow-400
-  via-pink-500
-  to-purple-600
-"
+      className="
+      fixed
+      bottom-5
+      right-4
+      z-9999
+
+      w-14
+      h-14
+
+      rounded-full
+
+      flex
+      items-center
+      justify-center
+
+      shadow-xl
+
+      hover:scale-105
+      active:scale-95
+
+      smooth-transition
+
+      backdrop-blur-xl
+      border border-white/20
+      "
+      style={{
+        background:
+          'linear-gradient(135deg, rgba(249,168,37,0.95), rgba(236,72,153,0.95), rgba(147,51,234,0.95))',
+      }}
     >
 
-      <FiInstagram className="text-[20px] md:text-[24px]" />
+      <FiInstagram
+        className="text-[22px] text-white"
+      />
 
     </a>
   )

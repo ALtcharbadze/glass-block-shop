@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+    --font-main: var(--font-manrope);
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -20,7 +21,7 @@ body {
   background: var(--background);
   color: var(--foreground);
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-main), sans-serif;
 
   margin: 0;
   padding: 0;
@@ -75,16 +76,24 @@ img {
 
 .app-body {
   background:
-    linear-gradient(
-      to bottom,
-      #d6e3ec,
-      #b8cdd9,
-      #f5f7f9
-    );
+  radial-gradient(
+    circle at top left,
+    rgba(255,255,255,0.65),
+    transparent 32%
+  ),
 
-  min-height: 100vh;
+  radial-gradient(
+    circle at bottom right,
+    rgba(255,255,255,0.45),
+    transparent 28%
+  ),
 
-  overflow-x: hidden;
+  linear-gradient(
+    to bottom,
+    #d6e3ec,
+    #c7d8e2,
+    #eef3f6
+  );
 }
 
 
@@ -94,31 +103,44 @@ img {
 ========================= */
 
 .page-container {
-  @apply max-w-7xl mx-auto px-4 md:px-8;
+  @apply max-w-360 mx-auto px-5 md:px-10;
 }
 
 .section-spacing {
-  @apply py-16 md:py-24;
+  @apply py-24 md:py-36;
 }
 
 .card-box {
-  @apply bg-white border border-gray-200 rounded-2xl;
+
+  @apply bg-white/88 border border-white/40 rounded-[28px];
+
+  backdrop-filter: blur(6px);
+
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .card-padding {
-  @apply p-5 md:p-8;
+  @apply p-6 md:p-10;
 }
 
 .section-title {
-  @apply text-3xl md:text-5xl font-bold text-black;
+  @apply text-4xl md:text-6xl font-semibold tracking-tight text-black;
 }
 
 .section-subtitle {
-  @apply text-gray-600 text-base md:text-lg;
+  @apply text-gray-500 text-lg md:text-xl leading-relaxed;
 }
 
 .smooth-transition {
-  @apply transition-all duration-300 ease-in-out;
+
+  transition:
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.22s ease,
+    box-shadow 0.32s ease,
+    background-color 0.22s ease,
+    border-color 0.22s ease;
+
+  will-change: transform;
 }
 
 /* =========================
@@ -166,23 +188,22 @@ img {
 
 .hover-lift:hover {
 
-  transform: translateY(-6px);
+  transform: translateY(-4px);
 
   box-shadow:
-    0 18px 40px rgba(0,0,0,0.08);
+    0 14px 32px rgba(0,0,0,0.08);
 }
 
 .image-hover {
 
   transition:
-    transform 0.7s ease,
-    filter 0.7s ease,
-    opacity 0.5s ease;
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s ease;
 }
 
 .image-hover:hover {
 
-  transform: scale(1.03);
+  transform: scale(1.015);
 }
 
 .glass-effect {
@@ -202,7 +223,8 @@ img {
 .soft-shadow {
 
   box-shadow:
-    0 10px 30px rgba(0,0,0,0.06);
+    0 8px 30px rgba(15,23,42,0.04),
+    0 20px 60px rgba(15,23,42,0.06);
 }
 
 .luxury-border {
@@ -222,14 +244,6 @@ button {
     color 0.3s ease,
     opacity 0.3s ease,
     box-shadow 0.3s ease;
-}
-
-button:hover {
-  transform: translateY(-2px);
-}
-
-button:active {
-  transform: scale(0.98);
 }
 
 a {
@@ -364,4 +378,68 @@ select {
     max-width: 100%;
     height: auto;
   }
+}
+
+/* =========================
+   PREMIUM PAGE TRANSITIONS
+========================= */
+
+.page-transition {
+
+  animation:
+    pageFade 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes pageFade {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(10px);
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   LUXURY GRAIN
+========================= */
+
+body::before {
+
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.01;
+
+  z-index: 9999;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='black' fill-opacity='1'%3E%3Ccircle cx='4' cy='4' r='1'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* =========================
+   PERFORMANCE
+========================= */
+
+img,
+button,
+.card-box,
+.hover-lift,
+.image-hover {
+
+  backface-visibility: hidden;
+
+  transform: translateZ(0);
 }

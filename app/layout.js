@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 
 import { CartProvider } from "./context/CartContext";
@@ -10,14 +10,10 @@ import PageTransition from "./components/PageTransition";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const manrope = Manrope({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-manrope",
 });
 
 export const metadata = {
@@ -179,7 +175,7 @@ export default function RootLayout({
     >
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased app-body`}
+        className={`${manrope.variable} antialiased app-body`}
       >
 
         {/* FIX PAGE REFRESH SCROLL */}

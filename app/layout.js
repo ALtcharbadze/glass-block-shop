@@ -20,12 +20,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://www.samaconceptstore.ge"),
+  metadataBase: new URL(
+    "https://www.samaconceptstore.ge"
+  ),
+
   viewport: {
     width: "device-width",
     initialScale: 1,
     maximumScale: 5,
   },
+
   title: {
     default:
       "SaMa Concept Store | Handmade Glass Block Furniture",
@@ -85,9 +89,9 @@ export const metadata = {
   },
 
   icons: {
-      icon: "/logo.png",
-      shortcut: "/logo.png",
-      apple: "/logo.png",
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
 
   openGraph: {
@@ -97,9 +101,11 @@ export const metadata = {
     description:
       "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები საქართველოში.",
 
-    url: "https://www.samaconceptstore.ge",
+    url:
+      "https://www.samaconceptstore.ge",
 
-    siteName: "SaMa Concept Store",
+    siteName:
+      "SaMa Concept Store",
 
     locale: "ka_GE",
 
@@ -107,13 +113,15 @@ export const metadata = {
 
     images: [
       {
-        url: "https://www.samaconceptstore.ge/og-image.jpg",
+        url:
+          "https://www.samaconceptstore.ge/og-image.jpg",
 
         width: 1200,
 
         height: 630,
 
-        alt: "SaMa Concept Store",
+        alt:
+          "SaMa Concept Store",
       },
     ],
   },
@@ -139,7 +147,8 @@ export const metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-image-preview": "large",
+      "max-image-preview":
+        "large",
       "max-snippet": -1,
     },
   },
@@ -150,15 +159,46 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}) {
+
   return (
+
     <html
       lang="ka"
       suppressHydrationWarning
     >
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased app-body`}
       >
+
+        {/* FIX PAGE REFRESH SCROLL */}
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('scrollRestoration' in history) {
+                history.scrollRestoration = 'manual';
+              }
+
+              window.addEventListener('beforeunload', () => {
+                window.scrollTo(0, 0);
+              });
+
+              window.onload = () => {
+                setTimeout(() => {
+                  window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'instant'
+                  });
+                }, 0);
+              };
+            `,
+          }}
+        />
 
         {/* GOOGLE SEO STRUCTURED DATA */}
 
@@ -224,6 +264,7 @@ export default function RootLayout({ children }) {
         <SpeedInsights />
 
       </body>
+
     </html>
   );
 }

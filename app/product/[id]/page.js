@@ -479,7 +479,7 @@ export default function ProductPage() {
 
       {added && (
 
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-black text-white px-5 md:px-6 py-3 md:py-4 rounded-2xl shadow-2xl z-9999 text-sm md:text-base whitespace-nowrap animate-fadeIn">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-black text-white px-5 md:px-6 py-3 md:py-4 rounded-2xl shadow-2xl z-[9999] text-sm md:text-base whitespace-nowrap animate-fadeIn">
 
           წარმატებით დაემატა კალათაში
 

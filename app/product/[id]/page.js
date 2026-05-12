@@ -395,10 +395,17 @@ export default function ProductPage() {
 
       {fullscreen && selectedImage && (
 
-        <div
-          onClick={() => setFullscreen(false)}
-          className="fixed inset-0 bg-black/95 z-9999 flex items-center justify-center"
-        >
+       <div
+  onClick={(e) => {
+
+    // CLOSE ONLY OUTSIDE IMAGE
+
+    if (e.target === e.currentTarget) {
+      setFullscreen(false)
+    }
+  }}
+  className="fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center"
+>
 
           {/* CLOSE */}
 

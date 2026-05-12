@@ -389,81 +389,73 @@ export default function ProductPage() {
 
       </div>
 
-      {/* FULLSCREEN */}
+{/* FULLSCREEN */}
 
-      {fullscreen && selectedImage && (
+{fullscreen && selectedImage && (
 
-        <div
-          onClick={() => setFullscreen(false)}
-          className="fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center"
-        >
+  <div
+    onClick={() => setFullscreen(false)}
+    className="fixed inset-0 bg-black/95 z-[9999]"
+  >
 
-          {/* CLOSE */}
+    {/* CLOSE */}
 
-          <button
-            onClick={() => setFullscreen(false)}
-            className="absolute top-4 md:top-6 right-5 md:right-8 text-white text-4xl md:text-5xl z-50"
-          >
+    <button
+      onClick={() => setFullscreen(false)}
+      className="absolute top-4 right-5 md:right-8 text-white text-5xl z-50"
+    >
+      ×
+    </button>
 
-            ×
+    {/* LEFT */}
 
-          </button>
+    <button
+      onClick={(e) => {
+        e.stopPropagation()
+        prevImage()
+      }}
+      className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 text-white text-5xl z-50"
+    >
+      ‹
+    </button>
 
-          {/* LEFT */}
+    {/* RIGHT */}
 
-          <button
-            onClick={(e) => {
+    <button
+      onClick={(e) => {
+        e.stopPropagation()
+        nextImage()
+      }}
+      className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 text-white text-5xl z-50"
+    >
+      ›
+    </button>
 
-              e.stopPropagation()
+    {/* IMAGE */}
 
-              prevImage()
-            }}
-            className="absolute left-2 md:left-6 text-white text-4xl md:text-6xl px-2 md:px-4 z-50"
-          >
+    <img
+      src={selectedImage}
+      alt={product.name}
+      onClick={(e) => e.stopPropagation()}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      className="
+        absolute
+        top-1/2
+        left-1/2
+        -translate-x-1/2
+        -translate-y-1/2
+        max-w-[92vw]
+        max-h-[88vh]
+        object-contain
+        select-none
+      "
+    />
 
-            ‹
+  </div>
 
-          </button>
-
-          {/* IMAGE */}
-
-          <div
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-            className="relative w-[92%] h-[88vh]"
-          >
-
-            <Image
-              src={selectedImage}
-              alt={product.name}
-              fill
-              priority
-              sizes="100vw"
-              className="object-contain select-none"
-            />
-
-          </div>
-
-          {/* RIGHT */}
-
-          <button
-            onClick={(e) => {
-
-              e.stopPropagation()
-
-              nextImage()
-            }}
-            className="absolute right-2 md:right-6 text-white text-4xl md:text-6xl px-2 md:px-4 z-50"
-          >
-
-            ›
-
-          </button>
-
-        </div>
-
-      )}
+)}
 
       {/* TOAST */}
 

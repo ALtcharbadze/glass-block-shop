@@ -7,36 +7,7 @@ import Image from 'next/image'
 import products from '@/app/data/products'
 import { useCart } from '@/app/context/CartContext'
 
-export async function generateMetadata({ params }) {
 
-  const product = products.find(
-    (p) => p.id === Number(params.id)
-  )
-
-  if (!product) {
-    return {}
-  }
-
-  return {
-    title: `${product.name} | SaMa Concept Store`,
-
-    description: product.description,
-
-    openGraph: {
-      images: [
-        {
-          url: product.images?.[0] || product.image,
-        },
-      ],
-    },
-
-    twitter: {
-      images: [
-        product.images?.[0] || product.image,
-      ],
-    },
-  }
-}
 
 export default function ProductPage() {
 

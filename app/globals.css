@@ -11,37 +11,62 @@
 
 html {
   scroll-behavior: smooth;
+
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+
   font-family: Arial, Helvetica, sans-serif;
+
   margin: 0;
   padding: 0;
-}
 
-body,
-html {
   overflow-x: hidden;
+
+  overscroll-behavior-x: none;
+  overscroll-behavior-y: smooth;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  text-rendering: optimizeLegibility;
+
+  min-height: 100dvh;
 }
 
-button {
-  cursor: pointer;
+/* GLOBAL FIXES */
+
+* {
+  min-width: 0;
+
+  -webkit-tap-highlight-color: transparent;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+img {
+  display: block;
+
   user-select: none;
+
+  -webkit-user-drag: none;
+
+  image-rendering: auto;
 }
 
+button,
 a {
   cursor: pointer;
 }
 
+button,
+a,
 img {
-  user-select: none;
-  -webkit-user-drag: none;
-}
-
-* {
-  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 /* =========================
@@ -58,19 +83,33 @@ img {
     );
 
   min-height: 100vh;
+
   overflow-x: hidden;
 }
 
 /* =========================
-   PAGE TRANSITIONS
+   PAGE ANIMATION
 ========================= */
 
 .page-transition {
-  animation: fadeIn 0.35s ease;
+  animation: pageFade 0.45s ease;
 }
 
 .animate-fadeIn {
   animation: fadeIn 0.35s ease;
+}
+
+@keyframes pageFade {
+
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeIn {
@@ -87,7 +126,7 @@ img {
 }
 
 /* =========================
-   GLOBAL LAYOUT SYSTEM
+   GLOBAL LAYOUT
 ========================= */
 
 .page-container {
@@ -128,22 +167,24 @@ img {
   border: none;
 
   transition:
-    transform 0.3s ease,
-    background 0.3s ease,
-    opacity 0.3s ease,
-    box-shadow 0.3s ease;
+    transform 0.32s ease,
+    background-color 0.32s ease,
+    opacity 0.32s ease,
+    box-shadow 0.32s ease;
 }
 
 .button-primary:hover {
+
   background: #222;
 
   transform: translateY(-2px);
 
   box-shadow:
-    0 10px 25px rgba(0,0,0,0.18);
+    0 12px 30px rgba(0,0,0,0.16);
 }
 
 .button-primary:active {
+
   transform: scale(0.98);
 }
 
@@ -154,36 +195,44 @@ img {
 .hover-lift {
 
   transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease,
-    opacity 0.35s ease;
+    transform 0.38s ease,
+    box-shadow 0.38s ease,
+    opacity 0.38s ease;
 }
 
 .hover-lift:hover {
 
   transform: translateY(-6px);
+
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.08);
 }
 
 .image-hover {
 
   transition:
-    transform 0.6s ease,
-    filter 0.6s ease;
+    transform 0.7s ease,
+    filter 0.7s ease,
+    opacity 0.5s ease;
 }
 
 .image-hover:hover {
 
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
 .glass-effect {
 
   background:
-    rgba(255, 255, 255, 0.72);
+    rgba(255,255,255,0.72);
 
   backdrop-filter: blur(24px);
 
   -webkit-backdrop-filter: blur(24px);
+
+  transform: translateZ(0);
+
+  will-change: backdrop-filter;
 }
 
 .soft-shadow {
@@ -199,81 +248,79 @@ img {
 }
 
 /* =========================
+   GLOBAL TRANSITIONS
+========================= */
+
+button {
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease,
+    opacity 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+a {
+  transition:
+    opacity 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.9;
+}
+
+img {
+  transition:
+    transform 0.45s ease,
+    opacity 0.35s ease,
+    filter 0.35s ease;
+}
+
+.card-box,
+.card,
+.hover-lift {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    opacity 0.35s ease;
+}
+
+/* =========================
    PRODUCT IMAGES
 ========================= */
 
 .product-image {
   width: 100%;
   height: auto;
+
   object-fit: cover;
+
   display: block;
 }
 
 /* =========================
-   MOBILE
+   MOBILE FIXES
 ========================= */
-
-.mobile-padding {
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-@media (max-width: 768px) {
-
-  .section-container {
-
-    padding-left: 14px;
-    padding-right: 14px;
-  }
-}
-
-/* =========================
-   MOBILE / ANDROID FIXES
-========================= */
-
-html {
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
-body {
-  overscroll-behavior-x: none;
-  overscroll-behavior-y: smooth;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  text-rendering: optimizeLegibility;
-
-  min-height: 100dvh;
-}
-
-/* FIX MOBILE HEIGHT */
 
 main {
   min-height: 100dvh;
 }
 
-/* FIX SAFARI / ANDROID INPUT ZOOM */
-
 input,
 textarea,
 select {
   font-size: 16px;
-}
-
-/* BETTER TOUCH */
-
-button,
-a,
-img {
-  touch-action: manipulation;
-}
-
-/* SMOOTH SCROLL MOBILE */
-
-* {
-  -webkit-overflow-scrolling: touch;
 }
 
 /* SAFE AREAS */
@@ -294,45 +341,9 @@ img {
   padding-right: env(safe-area-inset-right);
 }
 
-/* MOBILE IMAGE FIX */
-
-img {
-  image-rendering: auto;
-}
-
-/* REMOVE BLUE TAP FLASH */
-
-button,
-a,
-div,
-img {
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* FIX HORIZONTAL SHAKE */
-
-body,
-html {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-/* IMPROVE ANIMATIONS */
-
-.smooth-transition {
-  will-change: transform, opacity;
-  transform: translateZ(0);
-}
-
-/* MOBILE NAVBAR BLUR PERFORMANCE */
-
-.glass-effect {
-  transform: translateZ(0);
-  will-change: backdrop-filter;
-}
-
-/* SCROLLBAR */
+/* =========================
+   SCROLLBAR
+========================= */
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -347,25 +358,32 @@ html {
   background: transparent;
 }
 
-/* SELECTION */
+/* =========================
+   TEXT SELECTION
+========================= */
 
 ::selection {
-  background: rgba(0,0,0,0.15);
+  background: rgba(0,0,0,0.12);
   color: black;
 }
 
 /* =========================
-   ANDROID FIXES
+   MOBILE
 ========================= */
+
+@media (max-width: 768px) {
+
+  .section-container {
+
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
 
 @media (max-width: 640px) {
 
   html {
     font-size: 16px;
-  }
-
-  body {
-    overflow-x: hidden;
   }
 
   h1,
@@ -382,16 +400,4 @@ html {
     max-width: 100%;
     height: auto;
   }
-
-}
-/* FIX IMAGE OVERFLOW */
-
-img {
-  display: block;
-}
-
-/* FIX FLEX OVERFLOW */
-
-* {
-  min-width: 0;
 }

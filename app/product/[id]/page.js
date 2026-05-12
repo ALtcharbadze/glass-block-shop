@@ -7,6 +7,37 @@ import Image from 'next/image'
 import products from '@/app/data/products'
 import { useCart } from '@/app/context/CartContext'
 
+export async function generateMetadata({ params }) {
+
+  const product = products.find(
+    (p) => p.id === Number(params.id)
+  )
+
+  if (!product) {
+    return {}
+  }
+
+  return {
+    title: `${product.name} | SaMa Concept Store`,
+
+    description: product.description,
+
+    openGraph: {
+      images: [
+        {
+          url: product.images?.[0] || product.image,
+        },
+      ],
+    },
+
+    twitter: {
+      images: [
+        product.images?.[0] || product.image,
+      ],
+    },
+  }
+}
+
 export default function ProductPage() {
 
   const params = useParams()
@@ -235,13 +266,14 @@ export default function ProductPage() {
               >
 
                 <Image
-                  src={selectedImage}
-                  alt={product.name}
-                  fill
-                  priority
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover smooth-transition hover:scale-[1.02]"
-                />
+  src={selectedImage}
+  alt={`Handmade glass block furniture ${product.name} by SaMa Concept Store`}
+  fill
+  priority
+  fetchPriority="high"
+  sizes="(max-width: 768px) 100vw, 50vw"
+  className="object-cover smooth-transition hover:scale-[1.02]"
+/>
 
               </div>
 

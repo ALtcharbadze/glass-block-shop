@@ -90,10 +90,17 @@ export const metadata = {
   },
 
   icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
-    apple: "/logo.png",
-  },
+  icon: [
+    {
+      url: "/logo.png",
+      type: "image/png",
+    },
+  ],
+
+  shortcut: "/logo.png",
+
+  apple: "/logo.png",
+},
 
   openGraph: {
     title:
@@ -221,8 +228,14 @@ export default function RootLayout({
               logo:
                 "https://www.samaconceptstore.ge/logo.png",
 
-              image:
-                "https://www.samaconceptstore.ge/logo.jpg",
+              images: [
+  {
+    url: "https://www.samaconceptstore.ge/logo.png",
+    width: 1200,
+    height: 1200,
+    alt: "SaMa Concept Store",
+  },
+],
 
               description:
                 "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები საქართველოში.",

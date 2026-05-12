@@ -30,12 +30,12 @@ export default function FloatingPhone() {
       active:scale-95
 
       backdrop-blur-xl
-      border border-white/30
+      
       "
-      style={{
-        background:
-          'linear-gradient(135deg, rgba(34,197,94,0.92), rgba(22,163,74,0.92))',
-      }}
+   style={{
+  background:
+    'linear-gradient(135deg, rgb(17,24,39), rgb(0,0,0))',
+}}
     >
 
       <Phone

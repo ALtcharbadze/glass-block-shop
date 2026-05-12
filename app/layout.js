@@ -222,7 +222,7 @@ export default function RootLayout({
                 "https://www.samaconceptstore.ge/logo.png",
 
               image:
-                "https://www.samaconceptstore.ge/og-image.jpg",
+                "https://www.samaconceptstore.ge/logo.jpg",
 
               description:
                 "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები საქართველოში.",

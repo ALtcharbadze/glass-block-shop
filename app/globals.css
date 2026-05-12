@@ -361,7 +361,7 @@ html {
 @media (max-width: 640px) {
 
   html {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   body {
@@ -383,4 +383,15 @@ html {
     height: auto;
   }
 
+}
+/* FIX IMAGE OVERFLOW */
+
+img {
+  display: block;
+}
+
+/* FIX FLEX OVERFLOW */
+
+* {
+  min-width: 0;
 }

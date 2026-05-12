@@ -88,7 +88,7 @@ export default function Navbar() {
       {/* MOBILE MENU */}
       {menuOpen && (
 
-        <div className="md:hidden flex flex-col gap-6 px-6 py-6 bg-white/95 backdrop-blur-2xl border-t border-gray-200 text-lg animate-fadeIn">
+        <div className="md:hidden flex flex-col gap-6 px-6 py-6 bg-white/95 backdrop-blur-2xl border-t border-gray-200 text-lg">
 
           <Link
             href="/"

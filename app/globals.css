@@ -87,43 +87,7 @@ img {
   overflow-x: hidden;
 }
 
-/* =========================
-   PAGE ANIMATION
-========================= */
 
-.page-transition {
-  animation: pageFade 0.45s ease;
-}
-
-.animate-fadeIn {
-  animation: fadeIn 0.35s ease;
-}
-
-@keyframes pageFade {
-
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 /* =========================
    GLOBAL LAYOUT

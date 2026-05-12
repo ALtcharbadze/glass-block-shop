@@ -245,7 +245,7 @@ export default function RootLayout({
 
           <Navbar />
 
-          <main className="pt-10 min-h-screen page-transition">
+          <main className="pt-10 min-h-screen">
 
             <PageTransition>
 

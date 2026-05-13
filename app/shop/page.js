@@ -1,12 +1,14 @@
 'use client'
 
+import { Suspense } from 'react'
+
 import { useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { useCart } from "@/app/context/CartContext"
 import products from '../data/products'
 
-export default function Shop() {
+function ShopContent() {
 
   const searchParams = useSearchParams()
 
@@ -196,5 +198,13 @@ export default function Shop() {
       </footer>
 
     </main>
+  )
+}
+
+export default function Shop() {
+  return (
+    <Suspense fallback={null}>
+      <ShopContent />
+    </Suspense>
   )
 }

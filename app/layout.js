@@ -20,16 +20,16 @@ const manrope = Manrope({
   variable: "--font-manrope",
 });
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+}
+
 export const metadata = {
   metadataBase: new URL(
-    "https://www.samaconceptstore.ge"
+    'https://www.samaconceptstore.ge'
   ),
-
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-  },
 
   title: {
     default:

@@ -1,13 +1,11 @@
 'use client'
 
-import { usePathname, useSearchParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
 
 export default function ScrollToTop() {
 
   const pathname = usePathname()
-
-  const searchParams = useSearchParams()
 
   useEffect(() => {
 
@@ -17,7 +15,7 @@ export default function ScrollToTop() {
       behavior: 'instant',
     })
 
-  }, [pathname, searchParams])
+  }, [pathname])
 
   return null
 }

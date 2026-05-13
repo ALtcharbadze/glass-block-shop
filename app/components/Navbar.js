@@ -21,15 +21,15 @@ export default function Navbar() {
 
       {/* SOLID BACKGROUND LAYER */}
 
-      <div className="fixed top-0 left-0 w-full h-20 bg-[#eef3f6] z-40" />
+      <div className="fixed inset-x-0 top-0 h-20 bg-[#eef3f6] z-40" />
 
       {/* NAVBAR */}
 
-      <nav className="fixed top-0 left-0 w-full z-50">
+      <nav className="fixed inset-x-0 top-0 z-50">
 
-        <div className="bg-white/80 backdrop-blur-2xl border-b border-white/20 shadow-sm">
+        <div className="bg-white/80 backdrop-blur-2xl border-b border-white/20 shadow-sm overflow-hidden">
 
-          <div className="page-container h-20 flex justify-between items-center">
+          <div className="page-container w-full h-20 flex justify-between items-center">
 
             {/* LOGO */}
 
@@ -123,7 +123,7 @@ export default function Navbar() {
 
               {/* MENU */}
 
-              <div className="relative z-50 md:hidden flex flex-col gap-6 px-6 py-6 bg-white/95 backdrop-blur-2xl border-t border-gray-200 text-lg">
+              <div className="relative z-50 md:hidden flex flex-col gap-6 px-6 py-6 bg-white/95 backdrop-blur-2xl border-t border-gray-200 text-lg w-full">
 
                 <Link
                   href="/"

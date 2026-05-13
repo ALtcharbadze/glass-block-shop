@@ -27,7 +27,13 @@ export default function Navbar() {
 
       <nav className="fixed inset-x-0 top-0 z-50">
 
-        <div className="bg-white/80 backdrop-blur-2xl border-b border-white/20 shadow-sm overflow-hidden">
+        <div
+  className="bg-[rgba(255,255,255,0.92)] border-b border-white/20 shadow-sm overflow-hidden"
+  style={{
+    backdropFilter: 'blur(18px)',
+    WebkitBackdropFilter: 'blur(18px)',
+  }}
+>
 
           <div className="page-container w-full h-20 flex justify-between items-center">
 

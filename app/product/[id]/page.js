@@ -217,7 +217,7 @@ export default function ProductPage() {
 
   return (
 
-    <main className="min-h-screen pt-16 md:pt-20 pb-20">
+    <main className="min-h-screen pt-4 md:pt-6 pb-20">
 
       <div className="page-container grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 items-start">
 
@@ -314,19 +314,28 @@ export default function ProductPage() {
 
           </p>
 
-<div className="bg-[#F8F5F0] border border-[#ebe6df] rounded-4xl p-7 md:p-9 soft-shadow mb-10 backdrop-blur-xl">
+<div className="overflow-hidden rounded-[34px] soft-shadow mb-10 border border-white/10">
 
   {/* DESCRIPTION */}
 
-  <div className="mb-10">
+  <div
+    className="
+      p-7 md:p-9
+      text-white
+      bg-linear-to-b
+      from-[#234236]
+      via-[#1B342B]
+      to-[#101010]
+    "
+  >
 
-    <h3 className="text-m font-bold text-black mb-5">
+    <h3 className="text-xl font-bold text-white mb-5">
 
       აღწერა
 
     </h3>
 
-    <p className="text-gray-700 leading-relaxed text-lg md:text-xl">
+    <p className="text-white/85 leading-loose text-lg md:text-xl">
 
       {product.description}
 
@@ -334,17 +343,21 @@ export default function ProductPage() {
 
   </div>
 
+  {/* GRADIENT DIVIDER */}
+
+  <div className="h-px bg-linear-to-r from-transparent via-white/10 to-transparent" />
+
   {/* DETAILS */}
 
-  <div className="pt-8 border-t border-gray-200">
+  <div className="bg-black p-7 md:p-9">
 
-    <h3 className="text-m font-bold text-black mb-7">
+    <h3 className="text-xl font-bold text-white mb-7">
 
       დეტალები
 
     </h3>
 
-    <div className="space-y-5 text-gray-700 text-base md:text-lg">
+    <div className="space-y-5 text-white/80 text-base md:text-lg">
 
       {product.details.map((detail, index) => (
 
@@ -353,7 +366,7 @@ export default function ProductPage() {
           className="flex items-start gap-4"
         >
 
-          <div className="w-2 h-2 rounded-full bg-black mt-3 shrink-0" />
+          <div className="w-2 h-2 rounded-full bg-white mt-3 shrink-0" />
 
           <p className="leading-relaxed">
 

@@ -37,7 +37,7 @@ export default function Home() {
 
               <span className="block text-[0.72em] mt-4 leading-none">
 
-                ექსპერიმენტული ლაბორატორია,
+                თანამედროვე დიზაინის
 
                 <br />
 

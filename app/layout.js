@@ -90,17 +90,17 @@ export const metadata = {
   },
 
   icons: {
-  icon: [
-    {
-      url: "/logo.png",
-      type: "image/png",
-    },
-  ],
+    icon: [
+      {
+        url: "/logo.png",
+        type: "image/png",
+      },
+    ],
 
-  shortcut: "/logo.png",
+    shortcut: "/logo.png",
 
-  apple: "/logo.png",
-},
+    apple: "/logo.png",
+  },
 
   openGraph: {
     title:
@@ -229,13 +229,13 @@ export default function RootLayout({
                 "https://www.samaconceptstore.ge/logo.png",
 
               images: [
-  {
-    url: "https://www.samaconceptstore.ge/logo.png",
-    width: 1200,
-    height: 1200,
-    alt: "SaMa Concept Store",
-  },
-],
+                {
+                  url: "https://www.samaconceptstore.ge/logo.png",
+                  width: 1200,
+                  height: 1200,
+                  alt: "SaMa Concept Store",
+                },
+              ],
 
               description:
                 "ხელნაკეთი დიზაინერული მინის ავეჯი და ინტერიერის ობიექტები საქართველოში.",
@@ -259,7 +259,9 @@ export default function RootLayout({
 
           <Navbar />
 
-          <main className="pt-10 min-h-screen">
+          {/* FIXED NAVBAR OFFSET */}
+
+          <main className="pt-20 min-h-screen">
 
             <PageTransition>
 

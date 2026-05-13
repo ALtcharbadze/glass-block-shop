@@ -10,6 +10,10 @@ import PageTransition from "./components/PageTransition";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
+import ScrollToTop from './components/ScrollToTop'
+
+import '@fontsource/cormorant-garamond/700-italic.css'
+
 const manrope = Manrope({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -270,6 +274,8 @@ export default function RootLayout({
           <FloatingPhone />
 
         </CartProvider>
+
+        <ScrollToTop />
 
         <Analytics />
 

@@ -1,7 +1,9 @@
 import Link from 'next/link'
 
 export default function Home() {
+
   return (
+
     <main className="min-h-screen bg-[#cfe3ea] overflow-hidden">
 
       {/* HERO */}
@@ -14,28 +16,35 @@ export default function Home() {
 
           <div className="max-w-155">
 
-            <p className="text-xs sm:text-sm uppercase tracking-[0.25em] text-gray-600 mb-5">
-              Handcrafted in Georgia
-            </p>
-
             <h1
-              className="
-              text-[3.2rem]
-              sm:text-[4.2rem]
-              md:text-[5rem]
-              lg:text-[5.5rem]
-              leading-[0.95]
-              tracking-[-0.04em]
-              text-[#0f172a]
-              mb-8
-              "
-            >
-              SaMa Concept Store
+  className="
+  text-[3.4rem]
+  sm:text-[4.5rem]
+  md:text-[5.4rem]
+  lg:text-[6.2rem]
+  leading-[0.9]
+  tracking-[-0.04em]
+  text-[#0f172a]
+  mb-8
+  italic
+  font-light
+  "
+  style={{
+    fontFamily: '"Cormorant Garamond", serif'
+  }}
+>
+  Where Glass Becomes Art
+
               <span className="block text-[0.72em] mt-4 leading-none">
+
                 ექსპერიმენტული ლაბორატორია,
+
                 <br />
+
                 ხელნაკეთი ავეჯი
+
               </span>
+
             </h1>
 
             <p
@@ -48,15 +57,17 @@ export default function Home() {
               max-w-xl
               "
             >
+
               SaMa არის ექსპერიმენტული ლაბორატორია, სადაც მასალები,
               ფორმები და იდეები მუდმივად იცვლება და ახალ მნიშვნელობას
               იძენს. აქ იქმნება ობიექტები, რომლებიც ერთდროულად არის
-              ფუნქციური და ხელოვნების ნიმუში — არა უბრალოდ ნივთი,
+              ფუნქციური და ხელოვნების ნიმუში. არა უბრალოდ ნივთი,
               არამედ სივრცითი ობიექტი, რომელიც გარემოს ხასიათს და
               ატმოსფეროს ცვლის.
+
             </p>
 
-            <Link href="/shop">
+            <Link href="/shop" scroll={true}>
 
               <button
                 className="
@@ -69,7 +80,9 @@ export default function Home() {
                 tracking-[0.22em]
                 "
               >
+
                 იხილეთ კოლექცია
+
               </button>
 
             </Link>
@@ -80,39 +93,47 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-4">
 
-  <div className="overflow-hidden rounded-[28px] h-60 sm:h-80 soft-shadow">
-    <img
-      src="/table1.jpg"
-      alt="Glass block table"
-      className="w-full h-full object-cover image-hover"
-    />
-  </div>
+            <div className="overflow-hidden rounded-[28px] h-60 sm:h-80 soft-shadow">
 
-  <div className="overflow-hidden rounded-[28px] h-60 sm:h-80 soft-shadow sm:mt-10">
-    <img
-      src="/table2.jpg"
-      alt="Glass block table"
-      className="w-full h-full object-cover image-hover"
-    />
-  </div>
+              <img
+                src="/table1.jpg"
+                alt="Glass block table"
+                className="w-full h-full object-cover image-hover"
+              />
 
-  <div className="overflow-hidden rounded-[28px] h-60 sm:h-80 soft-shadow">
-    <img
-      src="/table3.jpg"
-      alt="Glass block table"
-      className="w-full h-full object-cover image-hover"
-    />
-  </div>
+            </div>
 
-  <div className="overflow-hidden rounded-[28px] h-60-[320px] soft-shadow sm:mt-10">
-    <img
-      src="/table4.jpg"
-      alt="Glass block table"
-      className="w-full h-full object-cover image-hover"
-    />
-  </div>
+            <div className="overflow-hidden rounded-[28px] h-60 sm:h-80 soft-shadow sm:mt-10">
 
-</div>
+              <img
+                src="/table2.jpg"
+                alt="Glass block table"
+                className="w-full h-full object-cover image-hover"
+              />
+
+            </div>
+
+            <div className="overflow-hidden rounded-[28px] h-60 sm:h-80 soft-shadow">
+
+              <img
+                src="/table3.jpg"
+                alt="Glass block table"
+                className="w-full h-full object-cover image-hover"
+              />
+
+            </div>
+
+            <div className="overflow-hidden rounded-[28px] h-80 soft-shadow sm:mt-10">
+
+              <img
+                src="/table4.jpg"
+                alt="Glass block table"
+                className="w-full h-full object-cover image-hover"
+              />
+
+            </div>
+
+          </div>
 
         </div>
 
@@ -136,25 +157,35 @@ export default function Home() {
 
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
 
             {[
               {
                 title: 'ყავის მაგიდები',
                 desc: 'შუშის ბლოკებისგან შექმნილი ელეგანტური ყავის მაგიდები, რომლებიც ინტერიერს განსხვავებულ ხასიათს სძენს.',
                 image: '/table5.jpg',
+                href: '/shop?category=tables',
               },
 
               {
                 title: 'პედესტალები და სტენდები',
                 desc: 'დეკორისა და მცენარეებისთვის შექმნილი უნიკალური სადგამები ინტეგრირებული განათებით.',
                 image: '/padestal4.jpg',
+                href: '/shop?category=stands',
               },
+
+                {
+    title: 'სრული კოლექცია',
+    desc: 'იხილეთ SaMa Concept Store-ის სრული კოლექცია და ყველა ხელნაკეთი ინტერიერის ობიექტი.',
+    image: '/table2.jpg',
+    href: '/shop',
+  },
 
             ].map((item) => (
 
               <Link
-                href="/shop"
+  href={item.href}
+  scroll={true}
                 key={item.title}
                 className="card-box hover-lift soft-shadow overflow-hidden block bg-white"
               >

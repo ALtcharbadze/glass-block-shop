@@ -217,7 +217,7 @@ export default function ProductPage() {
 
   return (
 
-    <main className="min-h-screen pt-24 md:pt-32 pb-20">
+    <main className="min-h-screen pt-16 md:pt-20 pb-20">
 
       <div className="page-container grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 items-start">
 
@@ -296,7 +296,7 @@ export default function ProductPage() {
 
         <div>
 
-          <p className="text-sm uppercase tracking-[0.25em] text-gray-500 mb-4">
+          <p className="text-sm uppercase tracking-[0.25em] text-gray-500 mb-2">
 
             SaMa Concept Store
 
@@ -314,79 +314,95 @@ export default function ProductPage() {
 
           </p>
 
-          <p className="text-gray-700 leading-relaxed text-lg md:text-xl mb-12">
+<div className="bg-[#F8F5F0] border border-[#ebe6df] rounded-4xl p-7 md:p-9 soft-shadow mb-10 backdrop-blur-xl">
 
-            {product.description}
+  {/* DESCRIPTION */}
+
+  <div className="mb-10">
+
+    <h3 className="text-m font-bold text-black mb-5">
+
+      აღწერა
+
+    </h3>
+
+    <p className="text-gray-700 leading-relaxed text-lg md:text-xl">
+
+      {product.description}
+
+    </p>
+
+  </div>
+
+  {/* DETAILS */}
+
+  <div className="pt-8 border-t border-gray-200">
+
+    <h3 className="text-m font-bold text-black mb-7">
+
+      დეტალები
+
+    </h3>
+
+    <div className="space-y-5 text-gray-700 text-base md:text-lg">
+
+      {product.details.map((detail, index) => (
+
+        <div
+          key={index}
+          className="flex items-start gap-4"
+        >
+
+          <div className="w-2 h-2 rounded-full bg-black mt-3 shrink-0" />
+
+          <p className="leading-relaxed">
+
+            {detail}
 
           </p>
 
-          {/* BUTTON */}
+        </div>
 
-          <button
-            onClick={() => {
+      ))}
 
-              addToCart({
-                ...product,
-                image: product.images
-                  ? product.images[0]
-                  : product.image,
-              })
+    </div>
 
-              setAdded(true)
+  </div>
 
-              setTimeout(() => {
+</div>
 
-                setAdded(false)
+{/* BUTTON */}
 
-              }, 2000)
-            }}
-            className={`button-primary rounded-2xl px-8 md:px-12 py-4 md:py-5 text-base md:text-lg ${
-              added
-                ? 'bg-green-600'
-                : ''
-            }`}
-          >
+<button
+  onClick={() => {
 
-            {added
-              ? '✓ დამატებულია'
-              : 'კალათაში დამატება'}
+    addToCart({
+      ...product,
+      image: product.images
+        ? product.images[0]
+        : product.image,
+    })
 
-          </button>
+    setAdded(true)
 
-          {/* DETAILS */}
+    setTimeout(() => {
 
-          <div className="mt-16 pt-10 border-t border-gray-200">
+      setAdded(false)
 
-            <h3 className="text-2xl font-bold text-black mb-8">
+    }, 2000)
+  }}
+  className={`button-primary rounded-2xl px-8 md:px-12 py-4 md:py-5 text-base md:text-lg soft-shadow ${
+    added
+      ? 'bg-green-600'
+      : ''
+  }`}
+>
 
-              დეტალები
+  {added
+    ? '✓ დამატებულია'
+    : 'კალათაში დამატება'}
 
-            </h3>
-
-            <div className="space-y-5 text-gray-700 text-base md:text-lg">
-
-              {product.details.map((detail, index) => (
-
-                <div
-                  key={index}
-                  className="flex items-start gap-4"
-                >
-
-                  <div className="w-2 h-2 rounded-full bg-black mt-3 shrink-0" />
-
-                  <p className="leading-relaxed">
-
-                    {detail}
-
-                  </p>
-
-                </div>
-
-              ))}
-
-            </div>
-
-          </div>
+</button>
 
         </div>
 

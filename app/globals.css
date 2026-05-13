@@ -15,10 +15,16 @@ html {
 
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+
+  background: #eef3f6;
 }
 
 body {
-  background: var(--background);
+
+  position: relative;
+
+  background: #eef3f6;
+
   color: var(--foreground);
 
   font-family: var(--font-main), sans-serif;
@@ -29,7 +35,7 @@ body {
   overflow-x: hidden;
 
   overscroll-behavior-x: none;
-  overscroll-behavior-y: smooth;
+  overscroll-behavior-y: none;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
